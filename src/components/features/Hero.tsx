@@ -1,66 +1,96 @@
 import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, History } from "lucide-react";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 export function Hero() {
     return (
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-brand-secondary">
-            {/* --- NOWE TŁO INSPIROWANE OBRAZKIEM --- */}
-            {/* Kolorowa, rozmyta plama po prawej stronie */}
-            <div
-                className="absolute top-1/2 -translate-y-1/2 right-[-10%]
-                   w-[800px] h-[800px] md:w-[1000px] md:h-[1000px]
-                   rounded-full
-                   bg-[radial-gradient(circle,var(--color-brand-accent)_0%,var(--color-brand-primary)_40%,transparent_70%)]
-                   opacity-40 blur-[120px] -z-10
-                   animate-pulse-slow pointer-events-none"
-            />
-            {/* Druga, mniejsza i subtelniejsza plama dla balansu po lewej */}
-            <div
-                className="absolute top-0 left-[-20%]
-                   w-[600px] h-[600px]
-                   rounded-full
-                   bg-[radial-gradient(circle,var(--color-blue-200)_0%,transparent_70%)]
-                   opacity-30 blur-[100px] -z-10
-                   pointer-events-none"
-            />
-            {/* ------------------------------------ */}
+        // 1. USUNIĘTO bg-brand-secondary (bo zasłaniał animację)
+        <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden min-h-[90vh] flex items-center">
 
-            <div className="container mx-auto px-6 flex flex-col items-center text-center relative z-10">
+            {/* 2. TŁO: Jest teraz niezależnym elementem "pod spodem" */}
+            <BackgroundGradientAnimation containerClassName="absolute inset-0 -z-10" />
 
-                {/* BADGE */}
-                <div className="animate-fade-in-up [animation-delay:0ms] inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/70 px-4 py-1.5 text-sm font-medium text-brand-primary backdrop-blur-md mb-8 shadow-sm">
-                    <Star className="w-4 h-4 fill-brand-accent text-brand-accent" />
-                    <span>Nowoczesna edukacja z tradycjami</span>
+            {/* 3. TREŚĆ: Wyciągnięta na zewnątrz, z relative i z-10, żeby była NAD tłem */}
+            <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+                {/* LEWA STRONA: COPYWRITING */}
+                <div className="text-left space-y-8">
+
+                    {/* BADGE */}
+                    <div className="opacity-0 animate-appear [animation-delay:0ms] inline-flex items-center gap-2 rounded-full border border-brand-primary/30 bg-white/80 px-4 py-1.5 text-sm font-bold text-brand-primary backdrop-blur-md shadow-sm">
+                        <History className="w-4 h-4" />
+                        <span className="tracking-wide">EST. 1968 GDANSK</span>
+                    </div>
+
+                    {/* NAGŁÓWEK */}
+                    <h1 className="opacity-0 animate-appear [animation-delay:200ms] text-5xl md:text-7xl lg:text-8xl font-serif text-slate-900 leading-[0.95] tracking-tight drop-shadow-sm">
+                        Z pasją <br />
+                        do nauczania <br />
+                        <span className="relative inline-block mt-2">
+                            <span className="relative z-10 italic text-brand-primary pr-4">od 1968 roku</span>
+                            <svg className="absolute bottom-2 left-0 w-full h-3 text-brand-accent/40 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+                            </svg>
+                        </span>
+                    </h1>
+
+                    {/* OPIS */}
+                    <p className="opacity-0 animate-appear [animation-delay:400ms] text-xl text-slate-600 max-w-lg leading-relaxed border-l-4 border-brand-accent/50 pl-6 font-medium">
+                        Pionierskie metody prof. Szumilewicza przeniesione do świata cyfrowego.
+                        <span className="block mt-2 font-bold text-slate-900">To nie jest kolejna aplikacja. To szkoła.</span>
+                    </p>
+
+                    {/* PRZYCISKI */}
+                    <div className="opacity-0 animate-appear [animation-delay:600ms] flex flex-col sm:flex-row gap-4 pt-4">
+                        <Link
+                            href="#booking"
+                            className="inline-flex h-14 items-center justify-center rounded-none bg-brand-primary px-8 text-lg font-serif italic text-white shadow-xl shadow-brand-primary/20 transition-all hover:bg-slate-900 hover:-translate-y-1"
+                        >
+                            Umów Lekcję Próbną
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                        <Link href={'#historia'} className="inline-flex h-14 items-center justify-center border-b-2 border-slate-900 px-6 text-lg font-bold text-slate-900 transition-colors hover:text-brand-primary hover:border-brand-primary">
+                            Poznaj Historię
+                        </Link>
+                    </div>
                 </div>
 
-                {/* H1 - KLUCZOWY ELEMENT */}
-                <h1 className="animate-fade-in-up [animation-delay:200ms] max-w-5xl text-5xl md:text-7xl lg:text-8xl font-serif text-text-main leading-[1.1] mb-8 drop-shadow-sm">
-                    Z pasją do nauczania <br className="hidden md:block" />
-                    od <span className="text-brand-primary italic pr-2 relative">1968 roku</span>
-                    <span className="block text-3xl md:text-5xl text-text-muted mt-4 font-normal font-sans">
-            w nowoczesnym wydaniu online
-          </span>
-                </h1>
+                {/* PRAWA STRONA: ZDJĘCIE */}
+                <div className="relative h-[500px] w-full hidden lg:block perspective-1000 opacity-0 animate-appear [animation-delay:800ms]">
 
-                {/* OPIS */}
-                <p className="animate-fade-in-up [animation-delay:400ms] max-w-2xl text-lg md:text-xl text-text-muted mb-10 leading-relaxed">
-                    Połączyliśmy 50 lat doświadczenia dydaktycznego z najnowszą technologią.
-                    Indywidualne podejście, które działało wtedy, teraz dostępne w Twoim domu.
-                </p>
+                    <div className="absolute top-10 right-10 w-full h-full border-2 border-brand-primary/20 z-0" />
 
-                {/* PRZYCISKI */}
-                <div className="animate-fade-in-up [animation-delay:600ms] flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <Link
-                        href="#booking"
-                        className="inline-flex h-14 items-center justify-center rounded-full bg-brand-primary px-8 text-lg font-semibold text-white shadow-xl shadow-brand-primary/20 transition-transform hover:scale-105 hover:bg-brand-accent"
-                    >
-                        Zapisz się na lekcję
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                    <button className="inline-flex h-14 items-center justify-center rounded-full bg-white/80 border border-blue-200 px-8 text-lg font-medium text-text-main shadow-sm transition-colors hover:bg-white hover:border-brand-accent backdrop-blur-sm">
-                        Poznaj naszą historię
-                    </button>
+                    <div className="absolute inset-0 bg-gray-200 z-10 overflow-hidden shadow-2xl transition-transform hover:scale-[1.02] duration-700 ease-out group border border-white/50">
+                        {/* ZDJĘCIE */}
+                        <div className="relative w-full h-full bg-neutral-900 flex items-center justify-center overflow-hidden">
+                            {/* Pamiętaj o dodaniu zdjęcia do folderu public! */}
+                            <div className="absolute inset-0 bg-[url('/pierwsza_placowka.jpg')] bg-cover bg-center opacity-80 grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-normal"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+
+                            <span className="relative z-20 text-white/70 font-mono text-xs uppercase tracking-widest border border-white/30 px-4 py-2 bg-black/20 backdrop-blur-sm">
+                                [FOTO: Stanowisko nr 1, 1968]
+                            </span>
+                        </div>
+
+                        <div className="absolute bottom-0 left-0 w-full bg-white/90 backdrop-blur-md p-6 border-t border-white/20">
+                            <div className="flex justify-between items-end text-slate-900">
+                                <div>
+                                    <p className="text-xs font-mono uppercase text-brand-primary font-bold mb-1">Status</p>
+                                    <p className="font-serif text-xl italic">Online Available</p>
+                                </div>
+                                <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Pływający element */}
+                    <div className="absolute -bottom-10 -left-10 bg-white p-6 shadow-2xl border border-gray-100 z-20 max-w-[200px] animate-float opacity-0 animate-appear [animation-delay:1000ms]">
+                        <p className="text-xs text-slate-500 uppercase tracking-wider mb-2 font-bold">Następny termin</p>
+                        <p className="text-3xl font-serif text-brand-primary">03 Lutego</p>
+                        <p className="text-sm text-slate-900 mt-1 font-medium">godz. 17:00</p>
+                    </div>
                 </div>
+
             </div>
         </section>
     );

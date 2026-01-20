@@ -1,54 +1,141 @@
-@import "../../node_modules/tailwindcss/dist/lib.d.mts";
+@import "tailwindcss";
 
-/* THEME CONFIGURATION - TAILWIND 4
-   Definiujemy zmienne bezpośrednio w dyrektywie @theme
-*/
 @theme {
-  /* Fonty podpięte z layout.tsx */
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* Fonty */
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  /* LANLAB COLOR PALETTE
-     Niebieski (Trust/Education) + Biały (Clean)
-     Używam nazw semantycznych, a nie "blue-500", żeby kod miał sens biznesowy.
-  */
-  --color-brand-primary: oklch(45% 0.16 260); /* Głęboki, akademicki niebieski */
-  --color-brand-secondary: oklch(95% 0.02 260); /* Bardzo jasny błękit (tło sekcji) */
-  --color-brand-accent: oklch(65% 0.18 260); /* Żywszy niebieski na przyciski CTA */
+  /* PALETA KOLORÓW */
+  --color-brand-primary: oklch(45% 0.16 260);
+  --color-brand-secondary: oklch(96% 0.01 260);
+  --color-brand-accent: oklch(65% 0.18 260);
 
+  --color-text-main: oklch(20% 0.03 260);
+  --color-text-muted: oklch(55% 0.05 260);
   --color-surface-white: #ffffff;
-  --color-text-main: oklch(20% 0.03 260); /* Prawie czarny, lekko niebieski - lepszy niż #000 */
-  --color-text-muted: oklch(55% 0.05 260); /* Szary tekst pomocniczy */
 
-  /* Animacje specyficzne dla projektu */
-  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  /* --- ANIMACJE OGÓLNE --- */
+
+  /* appear (używane w Hero) */
+  --animate-appear: appear 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+  /* float (używane w Hero - dymek z datą) */
+  --animate-float: float 6s ease-in-out infinite;
+
+  /* pulse-slow */
+  --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  /* --- BRAKUJĄCE ANIMACJE (Dla sekcji Statystyk i O Nas) --- */
+  /* Dodaję je, aby animate-fade-in-up w innych komponentach działało */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+
+  /* --- MARQUEE (OPINIE) --- */
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
+
+  /* --- BACKGROUND GRADIENT (HERO BLOBS) --- */
+  --animate-first: moveVertical 30s ease infinite;
+  --animate-second: moveInCircle 20s reverse infinite;
+  --animate-third: moveInCircle 40s linear infinite;
+  --animate-fourth: moveHorizontal 40s ease infinite;
+  --animate-fifth: moveInCircle 20s ease infinite;
+
+  /* ================= KEYFRAMES ================= */
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes moveHorizontal {
+    0% { transform: translateX(-50%) translateY(-10%); }
+    50% { transform: translateX(50%) translateY(10%); }
+    100% { transform: translateX(-50%) translateY(-10%); }
+  }
+
+  @keyframes moveInCircle {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes moveVertical {
+    0% { transform: translateY(-50%); }
+    50% { transform: translateY(50%); }
+    100% { transform: translateY(-50%); }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+  }
+
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap, 1rem))); }
+  }
 }
 
-/* Utilities layer */
+/* Reszta pliku bez zmian */
 @layer utilities {
-  /* Klasa pomocnicza do ukrywania scrollbara w kalendarzu */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .bg-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 40;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 }
 
-/* Base resets */
 @layer base {
-  body {
-    @apply font-sans bg-surface-white text-text-main selection:bg-brand-accent selection:text-white;
+  html {
+    @apply scroll-smooth;
+    scroll-padding-top: 100px;
   }
 
+  body {
+    @apply font-sans bg-brand-secondary text-text-main antialiased;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-semibold tracking-tight;
   }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }

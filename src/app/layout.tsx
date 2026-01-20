@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {Footer} from "@/components/layout/Footer";
 
 // 1. Konfiguracja "Historycznego" szeryfa
 const fraunces = Fraunces({
@@ -44,7 +45,11 @@ export default function RootLayout({
           antialiased bg-white text-slate-900
         `}
         >
-        {children}
+        <div >
+            {children}
+            <Footer />
+        </div>
+
         </body>
         </html>
     );
