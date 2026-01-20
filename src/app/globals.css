@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "../../node_modules/tailwindcss/dist/lib.d.mts";
 
 /* THEME CONFIGURATION - TAILWIND 4
    Definiujemy zmienne bezpośrednio w dyrektywie @theme
