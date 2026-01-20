@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="problem to solve">
-      <change afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/admin-actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/booking-actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/get-slots.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/admin/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/polityka-prywatnosci/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/regulamin/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/features/AboutSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/features/BookingSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/features/HistorySection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/features/StatsFeatures.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/features/TestimonialSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/CountUp.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/background-gradient-animation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/db/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/db/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db/schema.ts" afterDir="false" />
+    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="first version">
       <change beforePath="$PROJECT_DIR$/src/lib/db/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db/seed.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +102,7 @@
       <workItem from="1768896692116" duration="4093000" />
       <workItem from="1768926798888" duration="4988000" />
       <workItem from="1768933928700" duration="1503000" />
-      <workItem from="1768947852136" duration="3778000" />
+      <workItem from="1768947852136" duration="4242000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -147,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768894461165</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first version">
+      <option name="closed" value="true" />
+      <created>1768951756770</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1768951756770</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="problem to solve" />
-    <option name="LAST_COMMIT_MESSAGE" value="problem to solve" />
+    <MESSAGE value="first version" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version" />
   </component>
 </project>

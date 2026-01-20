@@ -3,7 +3,7 @@ config({ path: ".env.local" });
 
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { availabilitySlots, promoCodes, knowledgeBase } from "./schema";
+import { availabilitySlots, promoCodes } from "./schema";
 
 const runSeed = async () => {
     const connectionString = process.env.DIRECT_URL;
@@ -59,9 +59,6 @@ const runSeed = async () => {
         console.log(`✅ Dodano ${slots.length} slotów na Luty 2026.`);
 
         // 3. Wiedza (bez zmian)
-        await db.insert(knowledgeBase).values([
-            { content: "Language Laboratories to szkoła od 1968 roku.", metadata: JSON.stringify({ category: "historia" }) },
-        ]).onConflictDoNothing();
 
         console.log("🏁 Gotowe!");
     } catch (error) {
