@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* THEME CONFIGURATION - TAILWIND 4
+   Definiujemy zmienne bezpośrednio w dyrektywie @theme
+*/
+@theme {
+  /* Fonty podpięte z layout.tsx */
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* LANLAB COLOR PALETTE
+     Niebieski (Trust/Education) + Biały (Clean)
+     Używam nazw semantycznych, a nie "blue-500", żeby kod miał sens biznesowy.
+  */
+  --color-brand-primary: oklch(45% 0.16 260); /* Głęboki, akademicki niebieski */
+  --color-brand-secondary: oklch(95% 0.02 260); /* Bardzo jasny błękit (tło sekcji) */
+  --color-brand-accent: oklch(65% 0.18 260); /* Żywszy niebieski na przyciski CTA */
+
+  --color-surface-white: #ffffff;
+  --color-text-main: oklch(20% 0.03 260); /* Prawie czarny, lekko niebieski - lepszy niż #000 */
+  --color-text-muted: oklch(55% 0.05 260); /* Szary tekst pomocniczy */
+
+  /* Animacje specyficzne dla projektu */
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+}
+
+/* Utilities layer */
+@layer utilities {
+  /* Klasa pomocnicza do ukrywania scrollbara w kalendarzu */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Base resets */
+@layer base {
+  body {
+    @apply font-sans bg-surface-white text-text-main selection:bg-brand-accent selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
