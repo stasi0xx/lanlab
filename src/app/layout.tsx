@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Language Laboratories - Nauka języków od 1968",
+    title: "WeTalk - Nauka języków od 1968",
     description: "Nowoczesna szkoła językowa online z tradycjami. Umów się na lekcję próbną.",
 };
 

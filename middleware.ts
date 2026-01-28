@@ -1,31 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
+// middleware.ts
+import { type NextRequest } from 'next/server'
+import { updateSession } from '@/lib/supabase/middleware' // Zaraz to stworzymy
+
+export async function middleware(request: NextRequest) {
+    return await updateSession(request)
+}
 
 export const config = {
-    matcher: ["/admin/:path*"],
-};
-
-export function middleware(req: NextRequest) {
-    const basicAuth = req.headers.get("authorization");
-    const url = req.nextUrl;
-
-    if (basicAuth) {
-        const authValue = basicAuth.split(" ")[1];
-        const [user, pwd] = atob(authValue).split(":");
-
-        if (
-            user === process.env.ADMIN_USER &&
-            pwd === process.env.ADMIN_PASSWORD
-        ) {
-            return NextResponse.next();
-        }
-    }
-
-    url.pathname = "/api/auth";
-
-    return new NextResponse("Auth Required", {
-        status: 401,
-        headers: {
-            "WWW-Authenticate": 'Basic realm="Secure Area"',
-        },
-    });
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - favicon.ico (favicon file)
+         * - public folder content
+         */
+        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    ],
 }

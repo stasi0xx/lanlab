@@ -26,45 +26,54 @@ const BookingSchema = z.object({
 // --- AKCJA 1: WERYFIKACJA KODU ---
 
 export async function verifyPromoCode(formData: FormData) {
-    const rawCode = formData.get("code") as string;
-    const slotId = formData.get("slotId") as string; // Pobieramy slotId z formularza
+    const code = formData.get("code") as string;
+    const slotId = formData.get("slotId") as string; // Frontend już to wysyła, teraz z tego skorzystamy
 
-    const validated = PromoSchema.safeParse({ code: rawCode, slotId });
-    if (!validated.success) return { success: false, message: "Błędne dane." };
-
-    const { code, slotId: targetSlotId } = validated.data;
+    if (!code) return { success: false, message: "Wpisz kod." };
 
     try {
-        const codeRecord = await db.query.promoCodes.findFirst({
-            where: and(
-                eq(promoCodes.code, code),
-                eq(promoCodes.isActive, true)
-            ),
+        // 1. Pobierz kod z bazy
+        const promo = await db.query.promoCodes.findFirst({
+            where: eq(promoCodes.code, code.toUpperCase()),
         });
 
-        if (!codeRecord) return { success: false, message: "Kod nieprawidłowy." };
-
-        if ((codeRecord.usageLimit || 0) <= (codeRecord.usedCount || 0)) {
-            return { success: false, message: "Limit kodu wyczerpany." };
+        // 2. Podstawowe sprawdzenia (Czy istnieje? Czy aktywny?)
+        if (!promo) {
+            return { success: false, message: "Kod nie istnieje." };
         }
 
-        // KLUCZOWE: Sprawdzenie dedykowanego slotu
-        if (codeRecord.specificSlotId) {
-            if (!targetSlotId) return { success: false, message: "Ten kod wymaga wybrania terminu." };
-            if (codeRecord.specificSlotId !== targetSlotId) {
-                return { success: false, message: "Ten kod nie obowiązuje na wybrany termin." };
+        if (!promo.isActive) {
+            return { success: false, message: "Ten kod wygasł." };
+        }
+
+        if (promo.usageLimit !== null && (promo.usedCount || 0) >= promo.usageLimit) {
+            return { success: false, message: "Limit użyć tego kodu został wyczerpany." };
+        }
+
+        // 3. --- NOWA LOGIKA: SPRAWDZENIE PRZYPISANIA DO SLOTU ---
+
+        // Jeśli kod ma przypisany konkretny slot (specificSlotId nie jest null)
+        if (promo.specificSlotId) {
+            // A użytkownik nie wybrał żadnego slotu LUB wybrał inny slot
+            if (!slotId || promo.specificSlotId !== slotId) {
+                return {
+                    success: false,
+                    message: "Ten kod nie obowiązuje na wybrane wydarzenie."
+                };
             }
         }
 
+        // Sukces
         return {
             success: true,
-            message: codeRecord.specificSlotId ? "Kod dedykowany przyjęty!" : "Kod rabatowy przyjęty!",
-            type: codeRecord.type,
-            codeId: codeRecord.id
+            discount: promo.discount,
+            codeId: promo.id,
+            message: `Kod aktywny: -${promo.discount}%`
         };
 
     } catch (error) {
-        return { success: false, message: "Błąd weryfikacji." };
+        console.error("Promo verification error:", error);
+        return { success: false, message: "Błąd weryfikacji kodu." };
     }
 }
 

@@ -1,3 +1,4 @@
+// src/components/ui/background-gradient-animation.tsx
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -21,34 +22,44 @@ export const BackgroundGradientAnimation = ({
     return (
         <div
             className={cn(
-                "h-full w-full absolute top-0 left-0 bg-slate-50 overflow-hidden flex items-center justify-center",
+                "fixed inset-0 bg-black overflow-hidden flex items-center justify-center",
                 containerClassName
             )}
             style={{
-                // DEFINICJA KOLORÓW (RGB)
-                // Ciemniejszy niebieski / Granat
-                "--first-color": "18, 113, 255",
-                // Głęboki fiolet
-                "--second-color": "100, 50, 200",
-                // Ciemny turkus
-                "--third-color": "0, 100, 150",
-                // Niebieski 'Royal'
-                "--fourth-color": "50, 80, 200",
-                // Akcent jaśniejszy
-                "--fifth-color": "20, 150, 255",
+                // PALETA NEONOWYCH KOLORÓW (RGB)
+                // Głęboki fiolet (baza)
+                "--first-color": "120, 0, 255",
 
-                "--size": "80%", // Wielkość blobów
+                // Neonowy błękit (Cyber Blue)
+                "--second-color": "0, 240, 255",
+
+                // Neonowy róż (Hot Pink)
+                "--third-color": "255, 0, 150",
+
+                // Elektryczny błękit
+                "--fourth-color": "50, 100, 255",
+
+                // Jasny akcent (Cyan)
+                "--fifth-color": "0, 255, 200",
+
+                "--size": "90%",
             } as React.CSSProperties}
         >
             <div className={cn("relative z-10 w-full h-full", className)}>{children}</div>
 
-            {/* Kontener Gradientów */}
-            <div className="gradients-container h-full w-full absolute inset-0 blur-[80px]">
-                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),0.4)_0,_rgba(var(--first-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-first opacity-100 mix-blend-multiply"></div>
-                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),0.4)_0,_rgba(var(--second-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-second opacity-100 mix-blend-multiply"></div>
-                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),0.4)_0,_rgba(var(--third-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-third opacity-100 mix-blend-multiply"></div>
-                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),0.4)_0,_rgba(var(--fourth-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-fourth opacity-70 mix-blend-multiply"></div>
-                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),0.4)_0,_rgba(var(--fifth-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-fifth opacity-100 mix-blend-multiply"></div>
+            {/* ZWIĘKSZONE OPACITY (0.6) + BLUR */}
+            <div className="gradients-container h-full w-full absolute inset-0 blur-[100px] opacity-60">
+
+                {/* Używamy 'mix-blend-hard-light' lub 'screen' dla efektu świecenia */}
+                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),0.5)_0,_rgba(var(--first-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-first mix-blend-hard-light"></div>
+
+                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),0.4)_0,_rgba(var(--second-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-second mix-blend-hard-light"></div>
+
+                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),0.4)_0,_rgba(var(--third-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-third mix-blend-hard-light"></div>
+
+                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),0.4)_0,_rgba(var(--fourth-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-fourth mix-blend-hard-light"></div>
+
+                <div className="absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),0.4)_0,_rgba(var(--fifth-color),0)_50%)] no-repeat w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)] animate-fifth mix-blend-hard-light"></div>
             </div>
         </div>
     );

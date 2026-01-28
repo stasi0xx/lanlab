@@ -7,13 +7,13 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* PALETA KOLORÓW */
-  --color-brand-primary: oklch(45% 0.16 260);
-  --color-brand-secondary: oklch(96% 0.01 260);
-  --color-brand-accent: oklch(65% 0.18 260);
+  --color-brand-primary: #ffffff;    /* Biały jako główny akcent na ciemnym tle */
+  --color-brand-secondary: #000000;  /* Głęboka czerń jako tło */
+  --color-brand-accent: #1e1e1e;     /* Ciemny szary dla kart i sekcji */
 
-  --color-text-main: oklch(20% 0.03 260);
-  --color-text-muted: oklch(55% 0.05 260);
-  --color-surface-white: #ffffff;
+  --color-text-main: #ffffff;
+  --color-text-muted: #a1a1aa;       /* zinc-400 */
+  --color-surface-white: #0a0a0a;
 
   /* --- ANIMACJE OGÓLNE --- */
 
@@ -133,7 +133,7 @@
   }
 
   body {
-    @apply font-sans bg-brand-secondary text-text-main antialiased;
+    @apply bg-black text-white antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-semibold tracking-tight;

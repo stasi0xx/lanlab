@@ -4,6 +4,15 @@ import { db } from "@/lib/db";
 import { availabilitySlots, bookings, promoCodes } from "@/lib/db/schema";
 import { eq, desc, asc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
+
+async function checkAdmin() {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) redirect("/login");
+    return user;
+}
 
 // 1. POBIERANIE DANYCH (DASHBOARD)
 export async function getAdminData() {
@@ -76,34 +85,45 @@ export async function deleteSlot(slotId: string) {
 }
 
 export async function createPromoCode(formData: FormData) {
-    const code = formData.get("code") as string;
-    const usageLimit = parseInt(formData.get("usageLimit") as string) || 1;
-    const specificSlotId = formData.get("slotId") as string || null;
+    await checkAdmin();
 
-    if (!code) return { success: false, message: "Kod wymagany" };
+    const code = formData.get("code") as string;
+    const discount = Number(formData.get("discount"));
+    const usageLimit = Number(formData.get("usageLimit"));
+
+    // KLUCZOWE: Pobieramy slotId. Jeśli jest pusty string "", zamieniamy na NULL
+    const rawSlotId = formData.get("specificSlotId") as string;
+    const specificSlotId = rawSlotId === "GLOBAL" || rawSlotId === "" ? null : rawSlotId;
+
+    if (!code || !discount) {
+        return { success: false, message: "Kod i zniżka są wymagane" };
+    }
 
     try {
         await db.insert(promoCodes).values({
             code: code.toUpperCase(),
-            type: "free_trial", // Na razie domyślny typ
-            usageLimit: usageLimit,
-            specificSlotId: specificSlotId ? specificSlotId : null,
-            isActive: true
+            discount,
+            usageLimit: usageLimit || 100, // Domyślnie 100 użyć
+            specificSlotId: specificSlotId, // Tutaj trafia UUID lub NULL
         });
+
         revalidatePath("/admin");
         return { success: true, message: "Kod utworzony" };
     } catch (e) {
-        return { success: false, message: "Kod musi być unikalny" };
+        console.error(e);
+        return { success: false, message: "Błąd bazy danych (prawdopodobnie kod już istnieje)" };
     }
 }
 
 // NOWA AKCJA: Usuwanie kodu
 export async function deletePromoCode(id: string) {
+    await checkAdmin();
+
     try {
         await db.delete(promoCodes).where(eq(promoCodes.id, id));
         revalidatePath("/admin");
-        return { success: true };
+        return {success: true};
     } catch (e) {
-        return { success: false, message: "Błąd usuwania" };
+        return {success: false, message: "Nie można usunąć kodu"};
     }
 }

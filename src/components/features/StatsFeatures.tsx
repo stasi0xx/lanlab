@@ -1,107 +1,115 @@
+// src/components/features/StatsFeatures.tsx
 import { CountUp } from "@/components/ui/CountUp";
-import { GraduationCap, FlaskConical, Laptop2, Sparkles } from "lucide-react";
+import { GraduationCap, FlaskConical, Globe, Terminal } from "lucide-react";
 
 export function StatsFeatures() {
     return (
-        <section className="py-32 bg-slate-50 relative overflow-hidden" id={'metoda'}>
+        <section className="py-32 bg-black relative overflow-hidden border-t border-zinc-900" id="metoda">
 
-            {/* Tło dekoracyjne sekcji */}
-            <div className="absolute inset-0 bg-pattern-dots opacity-5 pointer-events-none" />
+            {/* TŁO: Techniczna siatka */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none" />
 
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
                 {/* --- TYTUŁ SEKCJ --- */}
-                <div className="text-center max-w-3xl mx-auto mb-20 space-y-4 animate-fade-in-up">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest shadow-sm">
-                        <Sparkles className="w-3 h-3 text-brand-primary" />
-                        Dlaczego LanLab?
+                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-zinc-800 pb-12">
+                    <div className="max-w-2xl space-y-6">
+                        <div className="inline-flex items-center gap-3 text-brand-primary font-mono text-xs uppercase tracking-[0.2em]">
+                            <Terminal className="w-4 h-4" />
+                            <span>System Metrics</span>
+                        </div>
+                        <h2 className="text-4xl md:text-6xl font-serif text-white leading-[0.9]">
+                            Liczby nie kłamią.<br />
+                            <span className="text-zinc-500">Skuteczność to matematyka.</span>
+                        </h2>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 leading-tight">
-                        Liczby, które budują <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-600">
-                    Twoje zaufanie.
-                </span>
-                    </h2>
-                    <p className="text-lg text-slate-500">
-                        Łączymy twarde dane z miękkimi kompetencjami. Zobacz, co stoi za naszą skutecznością.
+
+                    <p className="text-zinc-400 max-w-sm text-sm md:text-base leading-relaxed text-right md:text-left font-mono">
+                        /// STAT_LOG_INIT<br/>
+                        W świecie marketingu liczy się opowieść. W świecie nauki liczą się dowody.
                     </p>
                 </div>
 
-                {/* --- GRID KOLOROWYCH KAFELKÓW --- */}
-                <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+                {/* --- GRID KAFELKÓW (Neon Brutalism) --- */}
+                <div className="grid md:grid-cols-3 gap-0 border-l border-t border-zinc-800">
 
-                    {/* --- KAFELEK 1: DOŚWIADCZENIE (Amber Gradient) --- */}
-                    <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-10 rounded-[2.5rem] shadow-2xl shadow-orange-500/30 text-white flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-500 animate-fade-in-up delay-100 relative overflow-hidden">
+                    {/* --- KAFELEK 1: TRADYCJA (AMBER / ORANGE) --- */}
+                    <div className="group relative border-r border-b border-zinc-800 bg-black/50 p-12 transition-all duration-500 hover:bg-orange-950/10">
+                        {/* Kolorowa linia akcentowa */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_20px_rgba(249,115,22,0.7)]" />
 
-                        {/* Ozdoba w tle */}
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none -mr-10 -mt-10" />
-
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                            <GraduationCap className="w-8 h-8" />
+                        {/* Ikona z poświatą */}
+                        <div className="mb-8 relative">
+                            <div className="absolute -inset-4 bg-orange-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <GraduationCap className="w-10 h-10 text-zinc-500 group-hover:text-orange-500 transition-colors duration-300 relative z-10" />
                         </div>
 
-                        <h3 className="text-amber-100 font-bold uppercase tracking-widest text-xs mb-4">Tradycja</h3>
-
-                        <div className="flex items-baseline justify-center gap-1 mb-4">
-                <span className="text-7xl font-serif font-bold text-white">
-                  <CountUp end={50} duration={2500} />
-                </span>
-                            <span className="text-4xl font-serif text-amber-200 font-bold">+</span>
+                        <div className="flex items-baseline gap-2 mb-4">
+                            <span className="text-7xl font-serif font-medium text-white tracking-tighter group-hover:text-orange-100 transition-colors">
+                                <CountUp end={50} duration={2500} />
+                            </span>
+                            <span className="text-2xl font-mono text-orange-600 font-bold group-hover:text-orange-500 transition-colors">+</span>
                         </div>
 
-                        <h4 className="text-xl font-bold text-white mb-2">Lat Doświadczenia</h4>
-                        <p className="text-amber-50 leading-relaxed opacity-90">
-                            Nieprzerwanie od 1968 roku uczymy gdańszczan języków obcych.
+                        <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4 group-hover:text-orange-500 transition-colors">
+                            Lata Tradycji
+                        </h4>
+                        <p className="text-zinc-400 text-sm leading-relaxed border-l border-zinc-800 pl-4 group-hover:border-orange-500/50 transition-colors">
+                            Ciągłość metodyczna od 1968 roku.
+                            <br/>Najstarsza szkoła w kodzie binarnym.
                         </p>
                     </div>
 
-                    {/* --- KAFELEK 2: METODY (Teal Gradient) --- */}
-                    <div className="bg-gradient-to-br from-teal-500 to-emerald-600 p-10 rounded-[2.5rem] shadow-2xl shadow-teal-500/30 text-white flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-500 animate-fade-in-up delay-200 relative overflow-hidden">
+                    {/* --- KAFELEK 2: PRECYZJA (EMERALD / TEAL) --- */}
+                    <div className="group relative border-r border-b border-zinc-800 bg-black/50 p-12 transition-all duration-500 hover:bg-emerald-950/10">
+                        {/* Kolorowa linia akcentowa */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-emerald-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_20px_rgba(16,185,129,0.7)]" />
 
-                        {/* Ozdoba w tle */}
-                        <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none -ml-10 -mb-10" />
-
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                            <FlaskConical className="w-8 h-8" />
+                        {/* Ikona z poświatą */}
+                        <div className="mb-8 relative">
+                            <div className="absolute -inset-4 bg-emerald-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <FlaskConical className="w-10 h-10 text-zinc-500 group-hover:text-emerald-500 transition-colors duration-300 relative z-10" />
                         </div>
 
-                        <h3 className="text-teal-100 font-bold uppercase tracking-widest text-xs mb-4">Podejście</h3>
-
-                        <div className="flex items-baseline justify-center gap-1 mb-4">
-                <span className="text-7xl font-serif font-bold text-white">
-                  <CountUp end={100} duration={3000} />
-                </span>
-                            <span className="text-4xl font-serif text-teal-200 font-bold">%</span>
+                        <div className="flex items-baseline gap-2 mb-4">
+                            <span className="text-7xl font-serif font-medium text-white tracking-tighter group-hover:text-emerald-100 transition-colors">
+                                <CountUp end={100} duration={3000} />
+                            </span>
+                            <span className="text-2xl font-mono text-emerald-600 font-bold group-hover:text-emerald-500 transition-colors">%</span>
                         </div>
 
-                        <h4 className="text-xl font-bold text-white mb-2">Indywidualizacji</h4>
-                        <p className="text-teal-50 leading-relaxed opacity-90">
-                            Laboratoryjna precyzja doboru metod. Program szyty idealnie na miarę.
+                        <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4 group-hover:text-emerald-500 transition-colors">
+                            Personalizacji
+                        </h4>
+                        <p className="text-zinc-400 text-sm leading-relaxed border-l border-zinc-800 pl-4 group-hover:border-emerald-500/50 transition-colors">
+                            Algorytm doboru materiałów oparty o Twój profil kognitywny.
                         </p>
                     </div>
 
-                    {/* --- KAFELEK 3: TECHNOLOGIA (Rose Gradient) --- */}
-                    <div className="bg-gradient-to-br from-rose-500 to-pink-600 p-10 rounded-[2.5rem] shadow-2xl shadow-rose-500/30 text-white flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-500 animate-fade-in-up delay-300 relative overflow-hidden">
+                    {/* --- KAFELEK 3: DOSTĘPNOŚĆ (ROSE / PINK) --- */}
+                    <div className="group relative border-r border-b border-zinc-800 bg-black/50 p-12 transition-all duration-500 hover:bg-rose-950/10">
+                        {/* Kolorowa linia akcentowa */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-rose-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_20px_rgba(244,63,94,0.7)]" />
 
-                        {/* Ozdoba w tle */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-t from-black/10 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                            <Laptop2 className="w-8 h-8" />
+                        {/* Ikona z poświatą */}
+                        <div className="mb-8 relative">
+                            <div className="absolute -inset-4 bg-rose-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <Globe className="w-10 h-10 text-zinc-500 group-hover:text-rose-500 transition-colors duration-300 relative z-10" />
                         </div>
 
-                        <h3 className="text-rose-100 font-bold uppercase tracking-widest text-xs mb-4">Dostępność</h3>
-
-                        <div className="flex items-baseline justify-center gap-1 mb-4">
-                <span className="text-7xl font-serif font-bold text-white">
-                  <CountUp end={360} duration={3500} />
-                </span>
-                            <span className="text-4xl font-serif text-rose-200 font-bold">°</span>
+                        <div className="flex items-baseline gap-2 mb-4">
+                            <span className="text-7xl font-serif font-medium text-white tracking-tighter group-hover:text-rose-100 transition-colors">
+                                <CountUp end={360} duration={3500} />
+                            </span>
+                            <span className="text-2xl font-mono text-rose-600 font-bold group-hover:text-rose-500 transition-colors">deg</span>
                         </div>
 
-                        <h4 className="text-xl font-bold text-white mb-2">Wsparcia Online</h4>
-                        <p className="text-rose-50 leading-relaxed opacity-90">
-                            Nowoczesna platforma i materiały dostępne z każdego miejsca na ziemi.
+                        <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4 group-hover:text-rose-500 transition-colors">
+                            Dostępność
+                        </h4>
+                        <p className="text-zinc-400 text-sm leading-relaxed border-l border-zinc-800 pl-4 group-hover:border-rose-500/50 transition-colors">
+                            Nauka bez granic geograficznych.
+                            <br/>Platforma dostępna 24/7.
                         </p>
                     </div>
 

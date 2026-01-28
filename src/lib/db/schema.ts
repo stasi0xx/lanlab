@@ -2,15 +2,7 @@ import { pgTable, uuid, timestamp, boolean, text, integer } from "drizzle-orm/pg
 import { relations } from "drizzle-orm";
 
 // --- TABELA: KODY RABATOWE ---
-export const promoCodes = pgTable("promo_codes", {
-    id: uuid("id").defaultRandom().primaryKey(),
-    code: text("code").notNull().unique(),
-    type: text("type").notNull(), // 'discount' | 'free_trial'
-    usageLimit: integer("usage_limit").default(1),
-    usedCount: integer("used_count").default(0),
-    isActive: boolean("is_active").default(true),
-    specificSlotId: uuid("specific_slot_id"), // Przypisanie do konkretnego slotu
-});
+
 
 // --- TABELA: SLOTY (TERMINY) ---
 export const availabilitySlots = pgTable("availability_slots", {
@@ -35,6 +27,21 @@ export const bookings = pgTable("bookings", {
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const promoCodes = pgTable("promo_codes", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    code: text("code").notNull().unique(), // np. "LATO2025"
+    discount: integer("discount").notNull(), // np. 20 (procent)
+    isActive: boolean("is_active").default(true),
+    usageLimit: integer("usage_limit").default(100),
+    usedCount: integer("used_count").default(0),
+
+    // --- NOWE POLE: RELACJA DO SLOTU ---
+    // Jeśli NULL -> kod działa na wszystko (globalny)
+    // Jeśli USTAWIONE -> kod działa tylko na ten konkretny slot
+    specificSlotId: uuid("specific_slot_id").references(() => availabilitySlots.id),
+
+    createdAt: timestamp("created_at").defaultNow(),
+});
 // --- RELACJE (DEFINIUJEMY TYLKO RAZ!) ---
 
 // 1. Relacje Slotu (ma wiele rezerwacji i wiele kodów)

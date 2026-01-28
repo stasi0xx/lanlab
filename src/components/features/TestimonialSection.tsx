@@ -1,92 +1,125 @@
+// src/components/features/TestimonialSection.tsx
 import { cn } from "@/lib/utils";
-import { Star, MessageCircle } from "lucide-react";
+import { Star, MessageSquare, Terminal, Quote } from "lucide-react";
 
-// 1. DANE - PRZYKŁADOWE OPINIE
+// 1. DANE - (Treść ta sama, ale kontekst wizualny inny)
 const reviews = [
     {
         name: "Anna Kowalska",
-        username: "@anna_k",
-        body: "Niesamowite podejście! Po 3 miesiącach w końcu przełamałam barierę językową. Metody LanLab naprawdę działają.",
+        role: "UX Designer", // Zamiast username, dajemy rolę/kontekst
+        body: "Niesamowite podejście! Po 3 miesiącach w końcu przełamałam barierę językową. Metody WeTalk to czysty konkret.",
         img: "https://avatar.vercel.sh/anna",
         rating: 5,
     },
     {
         name: "Piotr Nowak",
-        username: "@piotr_dev",
-        body: "Lekcje online to dla mnie strzał w dziesiątkę. Oszczędzam czas na dojazdy, a poziom nauczania jest wyższy niż stacjonarnie.",
+        role: "Senior Dev",
+        body: "Lekcje online to dla mnie strzał w dziesiątkę. Oszczędzam czas, a poziom nauczania jest wyższy niż stacjonarnie.",
         img: "https://avatar.vercel.sh/piotr",
         rating: 5,
     },
     {
         name: "Marta Wiśniewska",
-        username: "@marta_w",
-        body: "Przygotowanie do egzaminu FCE na najwyższym poziomie. Zdałam z wynikiem A! Dziękuję Panie Janie.",
+        role: "Architekt",
+        body: "Przygotowanie do egzaminu FCE na najwyższym poziomie. Zdałam z wynikiem A! Dziękuję za profesjonalizm.",
         img: "https://avatar.vercel.sh/marta",
         rating: 5,
     },
     {
         name: "Tomasz Zieliński",
-        username: "@tomek_biznes",
-        body: "Angielski biznesowy w LanLab pomógł mi zdobyć kontrakt z zagranicznym klientem. Profesjonalizm w każdym calu.",
+        role: "CEO, TechCorp",
+        body: "Angielski biznesowy w WeTalk pomógł mi zdobyć kontrakt z zagranicznym klientem. Zero lania wody.",
         img: "https://avatar.vercel.sh/tomek",
         rating: 4,
     },
     {
         name: "Karolina Szymańska",
-        username: "@karo_s",
-        body: "Syn uwielbia te zajęcia. Lektorzy mają świetne podejście do młodzieży. Polecam każdemu rodzicowi.",
+        role: "Rodzic",
+        body: "Syn uwielbia te zajęcia. Lektorzy mają świetne podejście do młodzieży cyfrowej ery.",
         img: "https://avatar.vercel.sh/karo",
         rating: 5,
     },
     {
         name: "Jakub Lewandowski",
-        username: "@kubal",
-        body: "Platforma działa bez zarzutu, a materiały są bardzo nowoczesne. Widać, że szkoła idzie z duchem czasu.",
+        role: "Freelancer",
+        body: "Platforma działa bez zarzutu, a materiały są nowoczesne. Widać, że szkoła rozumie współczesne potrzeby.",
         img: "https://avatar.vercel.sh/kuba",
         rating: 5,
     },
 ];
 
-// 2. KARTA OPINII
+// 2. KARTA OPINII (Industrial Style)
 const ReviewCard = ({
                         img,
                         name,
-                        username,
+                        role,
                         body,
                         rating,
                     }: {
     img: string;
     name: string;
-    username: string;
+    role: string;
     body: string;
     rating: number;
 }) => {
     return (
         <figure
             className={cn(
-                "relative w-80 cursor-pointer overflow-hidden rounded-2xl border p-6 mx-4", // mx-4 daje odstęp między kartami
-                "border-slate-100 bg-white shadow-lg shadow-slate-200/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300",
+                "relative w-[350px] cursor-default overflow-hidden border mx-4 group transition-all duration-300",
+                // Styl podstawowy
+                "bg-zinc-900/30 border-zinc-800 p-6",
+                // Styl Hover
+                "hover:bg-zinc-900 hover:border-zinc-700"
             )}
         >
-            <div className="flex flex-row items-center gap-3">
-                <img className="rounded-full w-10 h-10 border border-slate-100" width="40" height="40" alt="" src={img} />
+            {/* Dekorator narożny */}
+            <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-zinc-700 group-hover:border-purple-500 transition-colors" />
+
+            {/* Header Karty */}
+            <div className="flex flex-row items-center gap-4 mb-4">
+                {/* Avatar w stylu "Hex" lub kwadrat */}
+                <div className="relative">
+                    <img className="w-10 h-10 border border-zinc-700 grayscale group-hover:grayscale-0 transition-all" src={img} alt={name} />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-black" />
+                </div>
+
                 <div className="flex flex-col">
-                    <figcaption className="text-sm font-bold text-slate-900">
+                    <figcaption className="text-sm font-bold text-white font-serif tracking-wide">
                         {name}
                     </figcaption>
+                    <span className="text-xs text-zinc-500 font-mono uppercase tracking-wider">
+                        {role}
+                    </span>
+                </div>
+
+                {/* Ocena jako dane techniczne */}
+                <div className="ml-auto flex flex-col items-end">
                     <div className="flex items-center gap-1">
                         {[...Array(rating)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                            <Star key={i} className="w-3 h-3 fill-purple-500 text-purple-500" />
                         ))}
                     </div>
+                    <span className="text-[10px] font-mono text-zinc-600 mt-1">VERIFIED_USER</span>
                 </div>
             </div>
-            <blockquote className="mt-4 text-sm text-slate-600 leading-relaxed italic">"{body}"</blockquote>
+
+            {/* Treść Opinii */}
+            <blockquote className="relative">
+                <Quote className="absolute -top-2 -left-2 w-8 h-8 text-zinc-800 -z-10 transform -scale-x-100" />
+                <p className="text-sm text-zinc-400 leading-relaxed italic group-hover:text-zinc-300 transition-colors">
+                    "{body}"
+                </p>
+            </blockquote>
+
+            {/* Stopka Karty - Linia postępu */}
+            <div className="absolute bottom-0 left-0 h-[2px] w-full bg-zinc-800">
+                <div className="h-full bg-purple-500 w-[0%] group-hover:w-full transition-all duration-700 ease-out" />
+            </div>
         </figure>
     );
 };
 
-// 3. KOMPONENT MARQUEE (Logika Animacji)
+// 3. MARQUEE (Bez zmian w logice, tylko TypeScript fixy jeśli potrzebne)
 const Marquee = ({
                      className,
                      reverse,
@@ -135,46 +168,60 @@ const Marquee = ({
     );
 };
 
-// 4. GŁÓWNA SEKCJA (Eksportowana)
+// 4. GŁÓWNA SEKCJA
 export function TestimonialsSection() {
     const firstRow = reviews.slice(0, reviews.length / 2);
     const secondRow = reviews.slice(reviews.length / 2);
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden" id={'opinie'}>
+        <section className="py-24 bg-black relative overflow-hidden border-t border-zinc-900" id="opinie">
 
-            <div className="container mx-auto px-6 mb-16 text-center max-w-3xl">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest shadow-sm mb-6 animate-fade-in-up">
-                    <MessageCircle className="w-3 h-3 text-brand-primary" />
-                    Social Proof
+            {/* Tło - Subtelna siatka */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+            <div className="container mx-auto px-6 mb-16 relative z-10">
+
+                {/* NAGŁÓWEK - LEWA STRONA (Dla odmiany od środka) */}
+                <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-zinc-800 pb-8 mb-12">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 text-purple-400 font-mono text-xs uppercase tracking-[0.2em] mb-4">
+                            <Terminal className="w-4 h-4" />
+                            <span>User Feedback Logs</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-serif text-white leading-[0.9]">
+                            Zaufali nam. <br/>
+                            <span className="text-zinc-500">Wyniki mówią same za siebie.</span>
+                        </h2>
+                    </div>
+                    <div className="hidden md:block text-right">
+                        <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest">
+                            Total Reviews: 1240+<br/>
+                            Average Rating: 4.9/5.0
+                        </p>
+                    </div>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6 animate-fade-in-up delay-100">
-                    Zaufali nam uczniowie z <br/> <span className="text-brand-primary">całego Trójmiasta.</span>
-                </h2>
-                <p className="text-lg text-slate-500 animate-fade-in-up delay-200">
-                    Zobacz opinie osób, które już zmieniły swoje podejście do nauki języków z LanLab.
-                </p>
+
             </div>
 
             <div className="relative flex h-full w-full flex-col items-center justify-center gap-8 overflow-hidden">
 
                 {/* Rząd 1 - W lewo */}
-                <Marquee pauseOnHover className="[--duration:40s]">
+                <Marquee pauseOnHover className="[--duration:50s]">
                     {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                        <ReviewCard key={review.name} {...review} />
                     ))}
                 </Marquee>
 
                 {/* Rząd 2 - W prawo (reverse) */}
-                <Marquee reverse pauseOnHover className="[--duration:40s]">
+                <Marquee reverse pauseOnHover className="[--duration:50s]">
                     {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                        <ReviewCard key={review.name} {...review} />
                     ))}
                 </Marquee>
 
-                {/* Maski gradientowe po bokach (Fade effect) */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white dark:from-background"></div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white dark:from-background"></div>
+                {/* Maski gradientowe po bokach - ZMIANA NA CZARNY */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black to-transparent z-10"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black to-transparent z-10"></div>
             </div>
         </section>
     );
