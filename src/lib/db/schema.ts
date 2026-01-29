@@ -56,6 +56,10 @@ export const bookingsRelations = relations(bookings, ({ one }) => ({
         fields: [bookings.slotId],
         references: [availabilitySlots.id],
     }),
+    promoCode: one(promoCodes, {
+        fields: [bookings.promoCodeId],
+        references: [promoCodes.id],
+    }),
 }));
 
 // 3. Relacje Kodów Rabatowych (może należeć do slotu)

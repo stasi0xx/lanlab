@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="first version">
-      <change afterPath="$PROJECT_DIR$/src/app/login/actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/PromoManager.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/supabase/middleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/supabase/server.ts" afterDir="false" />
+    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="rebranding">
+      <change afterPath="$PROJECT_DIR$/src/components/admin/SlotManager.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/about-1968.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/actions/admin-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/actions/admin-actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/actions/booking-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/actions/booking-actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/AboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/AboutSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/BookingSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/BookingSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/StatsFeatures.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/StatsFeatures.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/features/TestimonialSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/features/TestimonialSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/PromoManager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/PromoManager.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/background-gradient-animation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/background-gradient-animation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/db/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db/schema.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +111,8 @@
       <workItem from="1768947852136" duration="4458000" />
       <workItem from="1769087286001" duration="1288000" />
       <workItem from="1769099874389" duration="9000" />
-      <workItem from="1769588638136" duration="6256000" />
+      <workItem from="1769588638136" duration="7199000" />
+      <workItem from="1769692171569" duration="1509000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -163,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768952139459</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rebranding">
+      <option name="closed" value="true" />
+      <created>1769595276417</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769595276417</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rebranding">
+      <option name="closed" value="true" />
+      <created>1769595286885</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769595286885</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +172,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="problem to solve" />
     <MESSAGE value="first version" />
-    <option name="LAST_COMMIT_MESSAGE" value="first version" />
+    <MESSAGE value="rebranding" />
+    <option name="LAST_COMMIT_MESSAGE" value="rebranding" />
   </component>
 </project>

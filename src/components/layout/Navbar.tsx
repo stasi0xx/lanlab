@@ -49,7 +49,7 @@ export function Navbar() {
                 </Link>
 
                 {/* --- MENU DESKTOP --- */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white">
                     <Link href="#historia" className="hover:text-brand-primary transition-colors">O nas</Link>
                     <Link href="#booking" className="hover:text-brand-primary transition-colors">Oferta</Link>
                     <Link href="#booking" className="px-5 py-2.5 bg-brand-primary text-black rounded-full hover:bg-brand-accent hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-primary/25 font-bold">
@@ -59,7 +59,7 @@ export function Navbar() {
 
                 {/* --- MENU MOBILE (HAMBURGER) --- */}
                 <button
-                    className="md:hidden p-2 text-slate-600"
+                    className="md:hidden p-2 text-white"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X /> : <Menu />}
