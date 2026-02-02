@@ -5,15 +5,26 @@ import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useScroll } from "@react-three/drei";
 
+// 1. Definiujemy typ dla uniformów, żeby TS nie płakał o "Index signature"
+interface FlagUniforms {
+    uTime: { value: number };
+    uTexture: { value: THREE.Texture };
+    uScroll: { value: number };
+    [key: string]: any; // To jest kluczowe dla kompatybilności z Three.js
+}
+
 function FlagMesh() {
+    // 2. Precyzyjne typowanie referencji
     const meshRef = useRef<THREE.Mesh>(null!);
+
+    // Uwaga: useScroll zadziała tylko jeśli Canvas jest wewnątrz <ScrollControls>.
+    // Jeśli nie używasz ScrollControls, scroll.offset będzie undefined.
+    // Zabezpieczymy to w kodzie poniżej.
     const scroll = useScroll();
 
-    // Ładujemy teksturę flagi
     const texture = useLoader(THREE.TextureLoader, "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg");
 
-    // Shader, który wygina geometrię
-    const uniforms = useMemo(() => ({
+    const uniforms = useMemo<FlagUniforms>(() => ({
         uTime: { value: 0 },
         uTexture: { value: texture },
         uScroll: { value: 0 }
@@ -21,14 +32,23 @@ function FlagMesh() {
 
     useFrame((state) => {
         const { clock } = state;
-        meshRef.current.material.uniforms.uTime.value = clock.getElapsedTime();
-        // Reakcja na scroll - flaga wygina się mocniej przy przewijaniu
-        meshRef.current.material.uniforms.uScroll.value = scroll?.offset || 0;
+
+        // 3. NAPRAWA BŁĘDU: Rzutujemy materiał na ShaderMaterial
+        // Dzięki temu TS wie, że pole .uniforms istnieje.
+        const material = meshRef.current.material as THREE.ShaderMaterial;
+
+        // Dodatkowe sprawdzenie dla bezpieczeństwa (w produkcji must-have)
+        if (material && material.uniforms) {
+            material.uniforms.uTime.value = clock.getElapsedTime();
+            // Bezpieczny dostęp do scrolla (jeśli scroll hook nie działa, dajemy 0)
+            material.uniforms.uScroll.value = scroll?.offset || 0;
+        }
     });
 
     return (
         <mesh ref={meshRef} scale={[1.5, 1, 1]}>
-            <planeGeometry args={[3, 2, 32, 32]} />
+            {/* Zwiększyłem segmenty z 32 na 64 dla gładszej fali */}
+            <planeGeometry args={[3, 2, 64, 64]} />
             <shaderMaterial
                 transparent
                 uniforms={uniforms}
@@ -39,10 +59,10 @@ function FlagMesh() {
           void main() {
             vUv = uv;
             vec3 pos = position;
-            // Fizyka falowania: kombinacja sinusów
+            // Fizyka falowania
             float wave = sin(pos.x * 2.0 + uTime * 2.0) * 0.1;
             wave += sin(pos.y * 2.0 + uTime * 1.5) * 0.05;
-            pos.z += wave + (uScroll * 0.5); // Dodajemy wpływ scrolla
+            pos.z += wave + (uScroll * 0.5); 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
           }
         `}
