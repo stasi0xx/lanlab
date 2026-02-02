@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRight, History, CalendarCheck } from "lucide-react";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import {HeroFlag3D} from "@/components/ui/WavingFlag";
 
 export function Hero() {
     return (
@@ -64,41 +65,18 @@ export function Hero() {
                 </div>
 
                 {/* --- PRAWA STRONA --- */}
-                <div className="relative h-[600px] w-full hidden lg:block perspective-1000 opacity-0 animate-appear [animation-delay:800ms]">
+                <div className="relative hidden lg:block">
+                    {/* Dekoracyjna ramka w stylu LanLab */}
 
-                    {/* Dekoracja pod spodem - usunięto border, dodano glow */}
-                    <div className="absolute top-8 right-8 w-full h-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 blur-2xl -z-10" />
 
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-10 overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.01] group border border-white/10 hover:border-white/30 rounded-sm">
+                    <div className="relative h-[500px] lg:h-[600px] w-full animate-fade-in">
+                        <HeroFlag3D />
 
-                        <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                            {/* Zdjęcie */}
-                            <div className="absolute inset-0 bg-[url('/pierwsza_placowka.jpg')] bg-cover bg-center opacity-80 grayscale mix-blend-luminosity group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"></div>
-
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-
-                            <span className="absolute top-6 left-6 z-20 font-mono text-[10px] uppercase tracking-widest text-white/70 border border-white/20 px-3 py-1 bg-black/60 backdrop-blur-md">
-                                /// ARCHIVE_REF: 1968_001
-                            </span>
-                        </div>
-
-                        <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-xl p-8 border-t border-white/10">
-                            <div className="flex justify-between items-end">
-                                <div>
-                                    <p className="text-[10px] font-mono uppercase text-white/50 mb-2 tracking-widest">System Status</p>
-                                    <p className="font-serif text-2xl text-white italic drop-shadow-md">Online & Operational</p>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="relative flex h-3 w-3">
-                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_10px_#22c55e]"></span>
-                                    </span>
-                                </div>
-                            </div>
+                        {/* Dodatkowy sznyt: "Badge" informacyjny */}
+                        <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
+                            <p className="text-white font-serif italic">Z tradycją od 1968</p>
                         </div>
                     </div>
-
-
                 </div>
 
             </div>

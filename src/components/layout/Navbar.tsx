@@ -36,7 +36,7 @@ export function Navbar() {
           */}
                     <div className="relative h-12 w-48 md:h-16 md:w-64 transition-transform duration-300 group-hover:scale-105">
                         <Image
-                            src="/wetalk.webp" // Upewnij się, że nazwa pliku w public się zgadza!
+                            src="/wetalk_transparent.webp" // Upewnij się, że nazwa pliku w public się zgadza!
                             alt="LanLab Online Logo"
                             fill
                             className="object-contain object-left" // object-left: wyrównuje logo do lewej
