@@ -1,10 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"; // <--- WAŻNY IMPORT
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+
+const NAV_LINKS = [
+    { href: "#historia", label: "O nas" },
+    { href: "#metoda", label: "Metoda" },
+    { href: "#booking", label: "Cennik" },
+    { href: "#opinie", label: "Opinie" },
+];
+
+function Wordmark({ className }: { className?: string }) {
+    return (
+        <span className={cn("flex items-center", className)}>
+            <Image src="/logo-mark.png" alt="LanLab Online" width={189} height={100} className="h-12 w-auto object-contain" priority />
+        </span>
+    );
+}
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -21,56 +36,51 @@ export function Navbar() {
             className={cn(
                 "fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b",
                 scrolled
-                    ? "bg-black/80 backdrop-blur-md border-slate-200 py-3"
+                    ? "bg-brand-paper/90 backdrop-blur-md border-brand-line py-3 shadow-sm"
                     : "bg-transparent border-transparent py-5"
             )}
         >
             <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-
-                {/* --- LOGO (PEŁNE) --- */}
-                <Link href="/" className="flex items-center group">
-
-                    {/* Zmieniamy wymiary kontenera.
-             Wcześniej było w-10 (kwadrat), teraz dajemy w-40 lub w-48 (prostokąt),
-             aby zmieścił się cały napis.
-          */}
-                    <div className="relative h-12 w-48 md:h-16 md:w-64 transition-transform duration-300 group-hover:scale-105">
-                        <Image
-                            src="/wetalk_transparent.webp" // Upewnij się, że nazwa pliku w public się zgadza!
-                            alt="LanLab Online Logo"
-                            fill
-                            className="object-contain object-left" // object-left: wyrównuje logo do lewej
-                            priority
-                        />
-                    </div>
-
-                    {/* USUNĄŁEM CAŁY DIV Z TEKSTEM, KTÓRY BYŁ TUTAJ WCZEŚNIEJ */}
-
+                <Link href="/" className="group">
+                    <Wordmark className="transition-opacity group-hover:opacity-80" />
                 </Link>
 
-                {/* --- MENU DESKTOP --- */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white">
-                    <Link href="#historia" className="hover:text-brand-primary transition-colors">O nas</Link>
-                    <Link href="#booking" className="hover:text-brand-primary transition-colors">Oferta</Link>
-                    <Link href="#booking" className="px-5 py-2.5 bg-brand-primary text-black rounded-full hover:bg-brand-accent hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-primary/25 font-bold">
-                        Umów wizytę
+                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-ink">
+                    {NAV_LINKS.map((link) => (
+                        <Link key={link.href} href={link.href} className="hover:text-brand-primary transition-colors">
+                            {link.label}
+                        </Link>
+                    ))}
+                    <Link
+                        href="#booking"
+                        className="px-5 py-2.5 bg-brand-primary text-white rounded-full hover:bg-brand-primary-dark active:scale-95 transition-all font-bold shadow-sm"
+                    >
+                        Umów się
                     </Link>
                 </div>
 
-                {/* --- MENU MOBILE (HAMBURGER) --- */}
                 <button
-                    className="md:hidden p-2 text-white"
+                    className="md:hidden p-2 text-brand-ink"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label={isOpen ? "Zamknij menu" : "Otwórz menu"}
                 >
                     {isOpen ? <X /> : <Menu />}
                 </button>
 
-                {/* Mobile Dropdown (opcjonalne, jeśli masz) */}
                 {isOpen && (
-                    <div className="absolute top-full left-0 w-full bg-black border-b border-slate-100 p-6 flex flex-col gap-4 md:hidden shadow-xl">
-                        <Link href="#historia" onClick={() => setIsOpen(false)}>O nas</Link>
-                        <Link href="#booking" onClick={() => setIsOpen(false)}>Oferta</Link>
-                        <Link href="#booking" onClick={() => setIsOpen(false)} className="text-brand-primary font-bold">Umów wizytę</Link>
+                    <div className="absolute top-full left-0 w-full bg-brand-paper border-b border-brand-line p-6 flex flex-col gap-4 md:hidden shadow-xl">
+                        {NAV_LINKS.map((link) => (
+                            <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="text-brand-ink font-medium">
+                                {link.label}
+                            </Link>
+                        ))}
+                        <Link
+                            href="#booking"
+                            onClick={() => setIsOpen(false)}
+                            className="text-center py-3 bg-brand-primary text-white rounded-full font-bold"
+                        >
+                            Umów się
+                        </Link>
                     </div>
                 )}
             </div>

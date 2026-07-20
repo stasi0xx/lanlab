@@ -2,18 +2,25 @@
 
 @theme {
   /* Fonty */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  /* PALETA KOLORÓW */
-  --color-brand-primary: #ffffff;    /* Biały jako główny akcent na ciemnym tle */
-  --color-brand-secondary: #000000;  /* Głęboka czerń jako tło */
-  --color-brand-accent: #1e1e1e;     /* Ciemny szary dla kart i sekcji */
+  /* PALETA KOLORÓW — LANLAB ONLINE (niebieski + biały, Committed) */
+  --color-brand-primary: oklch(56% 0.19 253);   /* nasycony niebieski marki */
+  --color-brand-primary-dark: oklch(42% 0.17 253);
+  --color-brand-primary-light: oklch(72% 0.13 240);
+  --color-brand-ink: oklch(24% 0.035 253);      /* tintowana "czerń" na tekst */
+  --color-brand-paper: oklch(98.5% 0.006 253);  /* tintowana "biel" na tło */
+  --color-brand-surface: oklch(96% 0.012 253);  /* lekko chłodniejsza karta/sekcja */
+  --color-brand-line: oklch(90% 0.015 253);     /* linie/obramowania */
+  --color-brand-muted: oklch(52% 0.02 253);     /* tekst drugorzędny */
+  --color-brand-heritage: oklch(62% 0.09 55);   /* ciepły sepiowy akcent do archiwum */
 
-  --color-text-main: #ffffff;
-  --color-text-muted: #a1a1aa;       /* zinc-400 */
-  --color-surface-white: #0a0a0a;
+  --color-text-main: var(--color-brand-ink);
+  --color-text-muted: var(--color-brand-muted);
+  --color-surface-white: var(--color-brand-paper);
 
   /* --- ANIMACJE OGÓLNE --- */
 
@@ -105,52 +112,11 @@
     from { transform: translateY(0); }
     to { transform: translateY(calc(-100% - var(--gap, 1rem))); }
   }
-  @keyframes wave-shadow {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
-  }
-  @keyframes flag-shading {
-    0% { transform: translateX(-25%); }
-    100% { transform: translateX(0%); }
-  }
-  @keyframes shadow-move {
-    0% { transform: translateX(-30%) skewX(-5deg); opacity: 0.2; }
-    50% { opacity: 0.5; }
-    100% { transform: translateX(10%) skewX(5deg); opacity: 0.2; }
-  }
-
-
 }
 
-/* Reszta pliku bez zmian */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .animate-flag-shading {
-    animation: flag-shading 8s ease-in-out infinite alternate;
-  }
-  .animate-shadow-move {
-    animation: shadow-move 7s ease-in-out infinite alternate;
-  }
-
-  .animate-shadow-move-reverse {
-    animation: shadow-move 11s ease-in-out infinite alternate-reverse;
-  }
-  .bg-noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 40;
-    opacity: 0.4;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-  .animate-wave-shadow {
-    animation: wave-shadow 4s ease-in-out infinite alternate;
-  }
 }
 
 @layer base {
@@ -160,9 +126,9 @@
   }
 
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-brand-paper text-brand-ink antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-semibold tracking-tight;
+    @apply font-display font-semibold tracking-tight;
   }
 }

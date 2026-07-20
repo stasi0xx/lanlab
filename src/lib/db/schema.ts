@@ -1,5 +1,18 @@
-import { pgTable, uuid, timestamp, boolean, text, integer } from "drizzle-orm/pg-core";
+import { pgTable, uuid, timestamp, boolean, text, integer, vector, index } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+
+// --- RAG: MAGAZYN WEKTOROWY WIEDZY (istniejący w bazie od pierwszej wersji projektu) ---
+// Chunki treści z embeddingami — fundament pod przyszłe, w pełni semantyczne odpowiedzi KUBY.
+// Na razie KUBA odpowiada na podstawie kubaKnowledge/kubaFaq poniżej (bez wywołań LLM/embeddingów).
+export const knowledgeBase = pgTable("knowledge_base", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    content: text("content").notNull(),
+    metadata: text("metadata"),
+    embedding: vector("embedding", { dimensions: 1536 }),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => [
+    index("embeddingIndex").using("hnsw", table.embedding.op("vector_cosine_ops")),
+]);
 
 // --- TABELA: KODY RABATOWE ---
 
@@ -24,6 +37,8 @@ export const bookings = pgTable("bookings", {
     userPhone: text("user_phone").notNull(),
     status: text("status").default("pending").notNull(),
     promoCodeId: uuid("promo_code_id").references(() => promoCodes.id),
+    // "stationary" | "online" — forma zajęć wybrana w kroku 1 flow rezerwacji
+    lessonLocation: text("lesson_location").default("online").notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -69,3 +84,30 @@ export const promoCodesRelations = relations(promoCodes, ({ one }) => ({
         references: [availabilitySlots.id],
     }),
 }));
+
+// --- WIEDZA CHATBOTA KUBA ---
+
+// Bloki treściowe (Historia, Misja, Oferta, Cennik) — po jednym rekordzie na sekcję
+export const kubaKnowledge = pgTable("kuba_knowledge", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    section: text("section").notNull().unique(), // "historia" | "misja" | "oferta" | "cennik"
+    content: text("content").notNull().default(""),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+// FAQ — lista pytań i odpowiedzi
+export const kubaFaq = pgTable("kuba_faq", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    question: text("question").notNull(),
+    answer: text("answer").notNull(),
+    order: integer("order").default(0).notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Aktualności
+export const kubaNews = pgTable("kuba_news", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    title: text("title").notNull(),
+    body: text("body").notNull(),
+    publishedAt: timestamp("published_at").defaultNow().notNull(),
+});

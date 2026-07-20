@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="rebranding">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/WavingFlag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/WavingFlag.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="cbf24a70-6001-4df3-801a-157792e1651d" name="Changes" comment="rebranding" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,6 +108,7 @@
       <workItem from="1770041809732" duration="17000" />
       <workItem from="1770043036094" duration="3418000" />
       <workItem from="1770046808388" duration="983000" />
+      <workItem from="1770135398879" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

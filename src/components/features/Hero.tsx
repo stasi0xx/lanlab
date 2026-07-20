@@ -1,81 +1,66 @@
-// src/components/features/Hero.tsx
 import Link from "next/link";
-import { ArrowRight, History, CalendarCheck } from "lucide-react";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
-import {HeroFlag3D} from "@/components/ui/WavingFlag";
+import { ArrowRight, BadgeCheck, Clock3 } from "lucide-react";
+import { HeroFlag3D } from "@/components/ui/WavingFlag";
 
 export function Hero() {
     return (
-        <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden min-h-screen flex items-center bg-transparent selection:bg-white selection:text-black">
+        <section className="relative pt-36 pb-24 md:pt-44 md:pb-28 overflow-hidden bg-white">
+            {/* Subtelna siatka w tle, tylko tekstura, nie dekoracja */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#0a1f4405_1px,transparent_1px),linear-gradient(to_bottom,#0a1f4405_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
+            {/* Granatowy blob po prawej stronie */}
+            <div className="absolute top-1/2 -right-56 -translate-y-1/2 w-[640px] h-[640px] rounded-full bg-brand-primary/25 blur-[120px] pointer-events-none" />
+            <div className="absolute -top-32 -right-24 w-[380px] h-[380px] rounded-full bg-brand-primary-dark/20 blur-[100px] pointer-events-none" />
 
-            {/* 1. TŁO: Tylko Gradient Animation. USUNIĘTO div z gridem. */}
-            <div className="fixed inset-0 -z-50 pointer-events-none">
-                <BackgroundGradientAnimation />
-            </div>
-
-            {/* 2. Maska gradientowa (opcjonalnie) - przyciemnia dół, żeby tekst 'Stats' niżej był czytelny */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 -z-40"></div>
-
-            <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div className="container mx-auto px-6 max-w-7xl grid lg:grid-cols-2 gap-16 items-center relative z-10">
 
                 {/* --- LEWA STRONA --- */}
-                <div className="text-left space-y-10">
-
-                    {/* BADGE */}
-                    <div className="opacity-0 animate-appear [animation-delay:0ms] inline-flex items-center gap-3 border-l-2 border-white bg-white/10 px-4 py-2 text-xs font-bold tracking-[0.2em] text-white uppercase backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                        <History className="w-3.5 h-3.5" />
-                        <span>EST. 1968 / TRADITION RECODED</span>
+                <div className="text-left space-y-8">
+                    <div className="inline-flex items-center gap-2 bg-brand-primary/10 border border-brand-primary/20 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.15em] text-brand-primary uppercase backdrop-blur-sm">
+                        <BadgeCheck className="w-3.5 h-3.5" />
+                        <span>Od 1968 roku &middot; Gdańsk</span>
                     </div>
 
-                    {/* NAGŁÓWEK */}
-                    <h1 className="opacity-0 animate-appear [animation-delay:200ms] text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[0.85] tracking-tighter drop-shadow-2xl">
-                        WeTalk<span className="text-brand-primary">.</span>
-                        <span className="block text-2xl md:text-3xl font-sans font-light tracking-normal text-white/80 mt-6 border-l border-white/30 pl-6 py-2">
-                            Nie uczymy języków.<br />
-                            <span className="text-white font-medium text-shadow-glow">Budujemy Twoją komunikację.</span>
-                        </span>
+                    <h1 className="font-display text-4xl md:text-6xl lg:text-[3.6rem] font-bold text-brand-ink leading-[1.05] tracking-tight max-w-xl">
+                        Z <span className="underline decoration-brand-primary decoration-4 underline-offset-4">pasją</span> do nauczania od <span className="underline decoration-brand-primary decoration-4 underline-offset-4">1968</span> roku w <span className="underline decoration-brand-primary decoration-4 underline-offset-4">nowoczesnym</span> wydaniu
                     </h1>
 
-                    {/* OPIS */}
-                    <p className="opacity-0 animate-appear [animation-delay:400ms] text-lg text-white/70 max-w-lg leading-relaxed font-medium">
-                        Metoda prof. Szumilewicza, zdigitalizowana.
-                        Surowa efektywność bez zbędnych gamifikacji.
-                        Szkoła dla tych, którzy wymagają więcej.
+                    <p className="text-lg text-brand-muted max-w-lg leading-relaxed">
+                        Nowoczesna nauka języków online, indywidualnie, z ponad pół wieku doświadczenia.
+                        LANLAB ONLINE to nowa odsłona historycznej szkoły językowej.
                     </p>
 
-                    {/* PRZYCISKI */}
-                    <div className="opacity-0 animate-appear [animation-delay:600ms] flex flex-col sm:flex-row gap-5 pt-2">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
                         <Link
                             href="#booking"
-                            className="group relative inline-flex h-14 items-center justify-center overflow-hidden bg-white px-8 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-cyan-300 hover:shadow-[0_0_20px_rgba(103,232,249,0.6)]"
+                            className="group inline-flex h-14 items-center justify-center gap-2 bg-brand-primary px-8 text-sm font-bold uppercase tracking-widest text-white rounded-full transition-all hover:bg-brand-primary-dark hover:shadow-lg"
                         >
-                            <span className="relative z-10 flex items-center gap-2">
-                                Rozpocznij
-                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </span>
+                            Bezpłatna lekcja próbna
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </Link>
 
                         <Link
-                            href="#historia"
-                            className="group inline-flex h-14 items-center justify-center px-8 text-sm font-bold uppercase tracking-widest text-white/70 transition-colors hover:text-white border border-transparent hover:border-white/50"
+                            href="#booking"
+                            className="inline-flex h-14 items-center justify-center px-6 text-sm font-bold uppercase tracking-widest text-brand-ink/70 hover:text-brand-primary border border-brand-line hover:border-brand-primary/50 rounded-full transition-colors"
                         >
-                            Manifest Marki
+                            Umów się
                         </Link>
                     </div>
                 </div>
 
-                {/* --- PRAWA STRONA --- */}
+                {/* --- PRAWA STRONA: falująca flaga + karta rezerwacji --- */}
                 <div className="relative hidden lg:block">
-                    {/* Dekoracyjna ramka w stylu LanLab */}
-
-
-                    <div className="relative h-[500px] lg:h-[600px] w-full animate-fade-in">
+                    <div className="relative w-full max-w-md mx-auto">
                         <HeroFlag3D />
+                    </div>
 
-                        {/* Dodatkowy sznyt: "Badge" informacyjny */}
-                        <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                            <p className="text-white font-serif italic">Z tradycją od 1968</p>
+                    {/* Pływająca karta rezerwacji */}
+                    <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 w-64 border border-brand-line">
+                        <div className="flex items-center gap-2 text-brand-primary text-xs font-bold uppercase tracking-wider mb-2">
+                            <Clock3 className="w-4 h-4" />
+                            Lekcja standardowa
                         </div>
+                        <p className="font-display text-2xl font-bold text-brand-ink">150 zł <span className="text-sm font-medium text-brand-muted">/ 60 min</span></p>
+                        <p className="text-xs text-brand-muted mt-1">Indywidualnie, online, w dogodnym terminie</p>
                     </div>
                 </div>
 

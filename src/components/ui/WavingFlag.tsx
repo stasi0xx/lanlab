@@ -62,7 +62,7 @@ function FlagMesh() {
             // Fizyka falowania
             float wave = sin(pos.x * 2.0 + uTime * 2.0) * 0.1;
             wave += sin(pos.y * 2.0 + uTime * 1.5) * 0.05;
-            pos.z += wave + (uScroll * 0.5); 
+            pos.z += wave + (uScroll * 0.5);
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
           }
         `}

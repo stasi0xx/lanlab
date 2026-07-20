@@ -1,0 +1,246 @@
+- generic [active] [ref=f6e1]:
+  - generic [ref=f6e2]:
+    - main [ref=f6e3]:
+      - navigation [ref=f6e4]:
+        - generic [ref=f6e5]:
+          - link "L LANLAB ONLINE" [ref=f6e6] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f6e7]:
+              - generic [ref=f6e8]: L
+              - generic [ref=f6e9]: LANLAB ONLINE
+          - generic [ref=f6e10]:
+            - link "O nas" [ref=f6e11] [cursor=pointer]:
+              - /url: "#historia"
+            - link "Metoda" [ref=f6e12] [cursor=pointer]:
+              - /url: "#metoda"
+            - link "Cennik" [ref=f6e13] [cursor=pointer]:
+              - /url: "#booking"
+            - link "Opinie" [ref=f6e14] [cursor=pointer]:
+              - /url: "#opinie"
+            - link "Umów się" [ref=f6e15] [cursor=pointer]:
+              - /url: "#booking"
+      - generic [ref=f6e17]:
+        - generic [ref=f6e18]:
+          - generic [ref=f6e19]: Od 1968 roku · Gdańsk
+          - heading "Z pasją do nauczania od 1968 roku – w nowoczesnym wydaniu" [level=1] [ref=f6e24]
+          - paragraph [ref=f6e25]: Nowoczesna nauka języków online, indywidualnie, z ponad pół wieku doświadczenia. LANLAB ONLINE to nowa odsłona historycznej szkoły językowej.
+          - generic [ref=f6e26]:
+            - link "UMÓW SIĘ" [ref=f6e27] [cursor=pointer]:
+              - /url: "#booking"
+            - link "Poznaj naszą historię" [ref=f6e30] [cursor=pointer]:
+              - /url: "#historia"
+        - generic [ref=f6e37]:
+          - generic [ref=f6e38]: Lekcja standardowa
+          - paragraph [ref=f6e42]: 150 zł / 60 min
+          - paragraph [ref=f6e43]: Indywidualnie, online, w dogodnym terminie
+      - generic [ref=f6e45]:
+        - generic [ref=f6e46]:
+          - generic [ref=f6e47]:
+            - text: Dlaczego LANLAB
+            - heading "Tradycja, która stała się metodą." [level=2] [ref=f6e48]
+          - paragraph [ref=f6e49]: Nie sprzedajemy obietnic. Pół wieku doświadczenia przełożone na konkretny, indywidualny program nauki.
+        - generic [ref=f6e50]:
+          - generic [ref=f6e51]:
+            - generic [ref=f6e56]:
+              - generic [ref=f6e57]: "0"
+              - generic [ref=f6e58]: +
+            - heading "Lat doświadczenia" [level=4] [ref=f6e59]
+            - paragraph [ref=f6e60]: Ciągłość metodyczna od 1968 roku — jedna z pierwszych szkół językowych w Europie.
+          - generic [ref=f6e61]:
+            - generic [ref=f6e67]:
+              - generic [ref=f6e68]: "0"
+              - generic [ref=f6e69]: "%"
+            - heading "Indywidualne podejście" [level=4] [ref=f6e70]
+            - paragraph [ref=f6e71]: Program dopasowany do Twojego poziomu, celu i tempa nauki.
+          - generic [ref=f6e72]:
+            - generic [ref=f6e77]:
+              - generic [ref=f6e78]: "0"
+              - generic [ref=f6e79]: /7
+            - heading "Dostępność online" [level=4] [ref=f6e80]
+            - paragraph [ref=f6e81]: Rezerwuj i ucz się bez względu na to, gdzie jesteś.
+      - generic [ref=f6e84]:
+        - generic [ref=f6e86]:
+          - img "Pierwsze stanowisko szkoły Language Laboratories, 1968" [ref=f6e87]
+          - generic [ref=f6e89]:
+            - paragraph [ref=f6e90]: Archiwum
+            - paragraph [ref=f6e91]: "1968"
+        - generic [ref=f6e92]:
+          - generic [ref=f6e93]:
+            - generic [ref=f6e94]: O nas
+            - heading "Language Laboratories. Od 1968 roku." [level=2] [ref=f6e98]
+          - generic [ref=f6e99]:
+            - paragraph [ref=f6e100]: Jedna z wcześniej działających szkół językowych w Europie, założona w Gdańsku. Jej nazwa i program nawiązywały do nowoczesnych, jak na tamte czasy, metod nauczania — z elementami indywidualizacji, które w polskim szkolnictwie językowym uznano za pionierskie.
+            - paragraph [ref=f6e101]:
+              - text: "Przez ponad pół wieku metoda się rozwijała, ale zasada pozostała ta sama: program dopasowany do ucznia, nie odwrotnie."
+              - strong [ref=f6e102]: LANLAB ONLINE
+              - text: to ta sama szkoła, przeniesiona w erę cyfrową.
+          - paragraph [ref=f6e104]: "\"50 lat doświadczenia nauczyło nas jednego — najlepiej uczy się, gdy program mówi Twoim językiem, nie odwrotnie.\""
+      - generic [ref=f6e106]:
+        - generic [ref=f6e107]:
+          - text: Rezerwacja
+          - heading "Zarezerwuj swoją lekcję." [level=2] [ref=f6e108]
+          - paragraph [ref=f6e109]: Wybierz lekcję standardową albo odblokuj bezpłatną lekcję próbną kodem rabatowym.
+        - generic [ref=f6e110]:
+          - generic [ref=f6e111]:
+            - generic [ref=f6e112]: Lekcja standardowa
+            - paragraph [ref=f6e116]: 150 zł / 60 min
+            - paragraph [ref=f6e117]: Indywidualna lekcja online, dowolny termin.
+            - button "Umów się" [ref=f6e118]
+          - generic [ref=f6e121]:
+            - generic [ref=f6e122]: Masz kod rabatowy?
+            - paragraph [ref=f6e125]: Wpisz kod, aby odblokować bezpłatną lekcję próbną.
+            - generic [ref=f6e126]:
+              - textbox "Wpisz kod rabatowy" [ref=f6e127]
+              - button "Sprawdź" [disabled] [ref=f6e128]
+      - generic [ref=f6e129]:
+        - generic [ref=f6e131]:
+          - generic [ref=f6e132]:
+            - text: Opinie
+            - heading "Zaufali nam." [level=2] [ref=f6e133]
+          - paragraph [ref=f6e134]: 4.9 / 5.0 średniej oceny · ponad 1200 opinii
+        - generic [ref=f6e135]:
+          - generic [ref=f6e136]:
+            - generic [ref=f6e137]:
+              - figure [ref=f6e138]:
+                - generic [ref=f6e139]:
+                  - generic [ref=f6e140]: AK
+                  - generic [ref=f6e141]:
+                    - generic [ref=f6e142]: Anna Kowalska
+                    - generic [ref=f6e143]: UX Designer
+                - blockquote [ref=f6e155]:
+                  - paragraph [ref=f6e159]: "\"Niesamowite podejście! Po 3 miesiącach w końcu przełamałam barierę językową. Program dopasowany dokładnie do mnie.\""
+              - figure [ref=f6e160]:
+                - generic [ref=f6e161]:
+                  - generic [ref=f6e162]: PN
+                  - generic [ref=f6e163]:
+                    - generic [ref=f6e164]: Piotr Nowak
+                    - generic [ref=f6e165]: Senior Developer
+                - blockquote [ref=f6e177]:
+                  - paragraph [ref=f6e181]: "\"Lekcje online to dla mnie strzał w dziesiątkę. Oszczędzam czas, a poziom nauczania jest wyższy niż stacjonarnie.\""
+              - figure [ref=f6e182]:
+                - generic [ref=f6e183]:
+                  - generic [ref=f6e184]: MW
+                  - generic [ref=f6e185]:
+                    - generic [ref=f6e186]: Marta Wiśniewska
+                    - generic [ref=f6e187]: Architektka
+                - blockquote [ref=f6e199]:
+                  - paragraph [ref=f6e203]: "\"Przygotowanie do egzaminu FCE na najwyższym poziomie. Zdałam z wynikiem A. Dziękuję za profesjonalizm.\""
+            - generic [ref=f6e204]:
+              - figure [ref=f6e205]:
+                - generic [ref=f6e206]:
+                  - generic [ref=f6e207]: AK
+                  - generic [ref=f6e208]:
+                    - generic [ref=f6e209]: Anna Kowalska
+                    - generic [ref=f6e210]: UX Designer
+                - blockquote [ref=f6e222]:
+                  - paragraph [ref=f6e226]: "\"Niesamowite podejście! Po 3 miesiącach w końcu przełamałam barierę językową. Program dopasowany dokładnie do mnie.\""
+              - figure [ref=f6e227]:
+                - generic [ref=f6e228]:
+                  - generic [ref=f6e229]: PN
+                  - generic [ref=f6e230]:
+                    - generic [ref=f6e231]: Piotr Nowak
+                    - generic [ref=f6e232]: Senior Developer
+                - blockquote [ref=f6e244]:
+                  - paragraph [ref=f6e248]: "\"Lekcje online to dla mnie strzał w dziesiątkę. Oszczędzam czas, a poziom nauczania jest wyższy niż stacjonarnie.\""
+              - figure [ref=f6e249]:
+                - generic [ref=f6e250]:
+                  - generic [ref=f6e251]: MW
+                  - generic [ref=f6e252]:
+                    - generic [ref=f6e253]: Marta Wiśniewska
+                    - generic [ref=f6e254]: Architektka
+                - blockquote [ref=f6e266]:
+                  - paragraph [ref=f6e270]: "\"Przygotowanie do egzaminu FCE na najwyższym poziomie. Zdałam z wynikiem A. Dziękuję za profesjonalizm.\""
+          - generic [ref=f6e271]:
+            - generic [ref=f6e272]:
+              - figure [ref=f6e273]:
+                - generic [ref=f6e274]:
+                  - generic [ref=f6e275]: TZ
+                  - generic [ref=f6e276]:
+                    - generic [ref=f6e277]: Tomasz Zieliński
+                    - generic [ref=f6e278]: CEO, TechCorp
+                - blockquote [ref=f6e288]:
+                  - paragraph [ref=f6e292]: "\"Angielski biznesowy pomógł mi zdobyć kontrakt z zagranicznym klientem. Konkret, zero lania wody.\""
+              - figure [ref=f6e293]:
+                - generic [ref=f6e294]:
+                  - generic [ref=f6e295]: KS
+                  - generic [ref=f6e296]:
+                    - generic [ref=f6e297]: Karolina Szymańska
+                    - generic [ref=f6e298]: Rodzic
+                - blockquote [ref=f6e310]:
+                  - paragraph [ref=f6e314]: "\"Syn uwielbia te zajęcia. Lektorzy mają świetne podejście, mimo że lekcje są w 100% online.\""
+              - figure [ref=f6e315]:
+                - generic [ref=f6e316]:
+                  - generic [ref=f6e317]: JL
+                  - generic [ref=f6e318]:
+                    - generic [ref=f6e319]: Jakub Lewandowski
+                    - generic [ref=f6e320]: Freelancer
+                - blockquote [ref=f6e332]:
+                  - paragraph [ref=f6e336]: "\"Platforma działa bez zarzutu, a materiały są nowoczesne. Widać, że szkoła rozumie współczesne potrzeby.\""
+            - generic [ref=f6e337]:
+              - figure [ref=f6e338]:
+                - generic [ref=f6e339]:
+                  - generic [ref=f6e340]: TZ
+                  - generic [ref=f6e341]:
+                    - generic [ref=f6e342]: Tomasz Zieliński
+                    - generic [ref=f6e343]: CEO, TechCorp
+                - blockquote [ref=f6e353]:
+                  - paragraph [ref=f6e357]: "\"Angielski biznesowy pomógł mi zdobyć kontrakt z zagranicznym klientem. Konkret, zero lania wody.\""
+              - figure [ref=f6e358]:
+                - generic [ref=f6e359]:
+                  - generic [ref=f6e360]: KS
+                  - generic [ref=f6e361]:
+                    - generic [ref=f6e362]: Karolina Szymańska
+                    - generic [ref=f6e363]: Rodzic
+                - blockquote [ref=f6e375]:
+                  - paragraph [ref=f6e379]: "\"Syn uwielbia te zajęcia. Lektorzy mają świetne podejście, mimo że lekcje są w 100% online.\""
+              - figure [ref=f6e380]:
+                - generic [ref=f6e381]:
+                  - generic [ref=f6e382]: JL
+                  - generic [ref=f6e383]:
+                    - generic [ref=f6e384]: Jakub Lewandowski
+                    - generic [ref=f6e385]: Freelancer
+                - blockquote [ref=f6e397]:
+                  - paragraph [ref=f6e401]: "\"Platforma działa bez zarzutu, a materiały są nowoczesne. Widać, że szkoła rozumie współczesne potrzeby.\""
+      - button "Otwórz czat z KUBĄ" [ref=f6e402]
+    - contentinfo [ref=f6e405]:
+      - generic [ref=f6e406]:
+        - generic [ref=f6e407]:
+          - generic [ref=f6e408]:
+            - link "L LANLAB ONLINE" [ref=f6e409] [cursor=pointer]:
+              - /url: /
+              - generic [ref=f6e410]: L
+              - generic [ref=f6e411]: LANLAB ONLINE
+            - paragraph [ref=f6e412]: Z pasją do nauczania od 1968 roku.Tradycja szkoły językowej Language Laboratories, w nowoczesnym, cyfrowym wydaniu.
+          - generic [ref=f6e413]:
+            - heading "Adres" [level=4] [ref=f6e414]
+            - generic [ref=f6e418]:
+              - paragraph [ref=f6e419]: ul. Gdyńska G lok. 9
+              - paragraph [ref=f6e420]: 80-340 Gdańsk, Polska
+          - generic [ref=f6e421]:
+            - heading "Dane rejestrowe" [level=4] [ref=f6e422]
+            - generic [ref=f6e426]:
+              - paragraph [ref=f6e427]: WeUnite Jan Hofman
+              - generic [ref=f6e428]:
+                - generic [ref=f6e429]:
+                  - paragraph [ref=f6e430]: NIP
+                  - paragraph [ref=f6e431]: "5842877195"
+                - generic [ref=f6e432]:
+                  - paragraph [ref=f6e433]: REGON
+                  - paragraph [ref=f6e434]: "543312986"
+          - generic [ref=f6e435]:
+            - heading "Działalność" [level=4] [ref=f6e436]
+            - generic [ref=f6e440]:
+              - generic [ref=f6e441]:
+                - paragraph [ref=f6e442]: Forma prawna
+                - paragraph [ref=f6e443]: JDG
+              - generic [ref=f6e444]:
+                - paragraph [ref=f6e445]: PKD
+                - paragraph [ref=f6e446]: 73.11.Z — Działalność agencji reklamowych
+        - generic [ref=f6e447]:
+          - paragraph [ref=f6e448]: © 2026 LANLAB ONLINE — WeUnite Jan Hofman. Wszystkie prawa zastrzeżone.
+          - generic [ref=f6e449]:
+            - link "Regulamin" [ref=f6e450] [cursor=pointer]:
+              - /url: /regulamin
+            - link "Prywatność" [ref=f6e454] [cursor=pointer]:
+              - /url: /polityka-prywatnosci
+  - button "Open Next.js Dev Tools" [ref=f6e463] [cursor=pointer]

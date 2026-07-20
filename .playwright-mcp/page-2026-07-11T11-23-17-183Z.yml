@@ -1,0 +1,285 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "WeUnite" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - list [ref=e5]:
+        - listitem [ref=e6]:
+          - link "Co robimy" [ref=e7] [cursor=pointer]:
+            - /url: "#services"
+        - listitem [ref=e9]:
+          - link "Dla kogo" [ref=e10] [cursor=pointer]:
+            - /url: "#problem"
+        - listitem [ref=e12]:
+          - link "Polecają" [ref=e13] [cursor=pointer]:
+            - /url: "#endorsement"
+      - button "Umów rozmowę" [ref=e16] [cursor=pointer]
+  - main [ref=e17]:
+    - region "Sekcja główna" [ref=e18]:
+      - generic [ref=e20]:
+        - heading "Agencja marketingowa dla domków letniskowych — Twój Spotlight" [level=1] [ref=e21]:
+          - generic [ref=e22]: Agencja marketingowa dla domków letniskowych —
+          - text: Twój Spotlight
+        - paragraph [ref=e23]: Kompleksowa OBSŁUGA MARKETINGOWA Twojej strony internetowej oraz mediów społecznościowych. W branży od ponad 8 lat.
+        - generic [ref=e24]:
+          - button "Bezpłatna konsultacja" [ref=e25] [cursor=pointer]
+          - link "Zobacz ofertę" [ref=e26] [cursor=pointer]:
+            - /url: "#services"
+      - generic [ref=e28]:
+        - link "Strona internetowa + rezerwacje Profesjonalna strona z systemem płatności online" [ref=e29] [cursor=pointer]:
+          - /url: "#services"
+          - generic [ref=e30]: Strona internetowa + rezerwacje
+          - paragraph [ref=e34]: Profesjonalna strona z systemem płatności online
+        - link "Social media Regularne treści, kampanie i wzrost zasięgów" [ref=e70] [cursor=pointer]:
+          - /url: "#services"
+          - generic [ref=e71]: Social media
+          - paragraph [ref=e75]: Regularne treści, kampanie i wzrost zasięgów
+          - img [ref=e77]:
+            - generic [ref=e86]: f
+            - generic [ref=e91]: in
+            - generic [ref=e93]: Zasięgi
+        - link "Automatyzacje Procesy bez ręcznej pracy — 24/7" [ref=e101] [cursor=pointer]:
+          - /url: "#services"
+          - generic [ref=e102]: Automatyzacje
+          - paragraph [ref=e106]: Procesy bez ręcznej pracy — 24/7
+    - region "Nasi klienci" [ref=e115]:
+      - paragraph [ref=e116]: Nasi klienci
+      - generic [ref=e118]:
+        - img "Shine Hair — klient WeUnite" [ref=e120]
+        - img "Akademia Rozwoju Osobistego Columbus — klient WeUnite" [ref=e122]
+        - img "Polska Akademia Dzieci — klient WeUnite" [ref=e124]
+        - img "Gedania 1922 — klient WeUnite" [ref=e126]
+        - img "Creo — klient WeUnite" [ref=e128]
+    - region [ref=e139]:
+      - generic [ref=e140]:
+        - paragraph [ref=e141]: Brzmi znajomo?
+        - heading "Prowadzisz wynajem. Ale czy naprawdę na nim zarabiasz?" [level=2] [ref=e142]
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - heading "Telefony, SMS-y, arkusze Excela" [level=3] [ref=e150]
+            - paragraph [ref=e151]: Każda rezerwacja to ręczna robota — potwierdzenia, zmiany terminu, ryzyko podwójnej rezerwacji.
+          - generic [ref=e152]:
+            - heading "15–20% prowizji za każdą rezerwację" [level=3] [ref=e157]
+            - paragraph [ref=e158]: Booking.com i Airbnb zarabiają na Twoich gościach. Przy każdej rezerwacji oddajesz im część swoich przychodów.
+          - generic [ref=e159]:
+            - heading "Nie wiesz, kto do Ciebie przyjeżdża" [level=3] [ref=e166]
+            - paragraph [ref=e167]: Platformy trzymają dane kontaktowe gości u siebie. Nie możesz dotrzeć do stałych klientów ani budować własnej bazy.
+    - region "Nasze usługi" [ref=e168]:
+      - generic [ref=e169]:
+        - paragraph [ref=e170]: USŁUGI
+        - heading "Trzy obszary. Jeden zespół." [level=2] [ref=e171]: Trzy obszary.Jeden zespół.
+      - generic [ref=e173]:
+        - generic [ref=e178]:
+          - generic [ref=e179]: domkiletniskowe.pl
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - paragraph [ref=e187]: Domki Pod Lasem
+              - paragraph [ref=e188]: Zarezerwuj pobyt
+              - paragraph [ref=e189]: Bezpośrednio — bez prowizji dla platform
+            - generic [ref=e190]:
+              - paragraph [ref=e191]: Maj 2025
+              - generic [ref=e192]:
+                - generic [ref=e193]: Pn
+                - generic [ref=e194]: Wt
+                - generic [ref=e195]: Śr
+                - generic [ref=e196]: Cz
+                - generic [ref=e197]: Pt
+                - generic [ref=e198]: So
+                - generic [ref=e199]: Nd
+                - generic [ref=e200]: "1"
+                - generic [ref=e201]: "2"
+                - generic [ref=e202]: "3"
+                - generic [ref=e203]: "4"
+                - generic [ref=e204]: "5"
+                - generic [ref=e205]: "6"
+                - generic [ref=e206]: "7"
+                - generic [ref=e207]: "8"
+                - generic [ref=e208]: "9"
+                - generic [ref=e209]: "10"
+                - generic [ref=e210]: "11"
+                - generic [ref=e211]: "12"
+                - generic [ref=e212]: "13"
+                - generic [ref=e213]: "14"
+                - generic [ref=e214]: "15"
+                - generic [ref=e215]: "16"
+                - generic [ref=e216]: "17"
+                - generic [ref=e217]: "18"
+                - generic [ref=e218]: "19"
+                - generic [ref=e219]: "20"
+                - generic [ref=e220]: "21"
+                - generic [ref=e221]: "22"
+                - generic [ref=e222]: "23"
+                - generic [ref=e223]: "24"
+                - generic [ref=e224]: "25"
+                - generic [ref=e225]: "26"
+                - generic [ref=e226]: "27"
+                - generic [ref=e227]: "28"
+                - generic [ref=e228]: "29"
+                - generic [ref=e229]: "30"
+                - generic [ref=e230]: "31"
+            - button "Sprawdź dostępność" [ref=e231]
+            - generic [ref=e232]:
+              - generic [ref=e233]: ✓ Bez prowizji
+              - generic [ref=e234]: ✓ Płatność online
+              - generic [ref=e235]: ✓ Instant book
+        - generic [ref=e236]:
+          - generic [ref=e238]:
+            - generic [ref=e239]: "01"
+            - heading "Strona internetowa + rezerwacje" [level=3] [ref=e245]
+            - paragraph [ref=e246]: Tworzymy strony internetowe dla właścicieli domków letniskowych, które zastępują rezerwacje telefoniczne i drogi OTB. Twoja strona pracuje 24/7 — zbiera rezerwacje i płatności, nawet gdy śpisz.
+            - list [ref=e247]:
+              - listitem [ref=e248]:
+                - generic [ref=e251]: Projekt i wdrożenie strony od zera
+              - listitem [ref=e252]:
+                - generic [ref=e255]: System rezerwacji z wyborem terminu i płatnością online
+              - listitem [ref=e256]:
+                - generic [ref=e259]: Własna domena — zero prowizji dla pośredników
+              - listitem [ref=e260]:
+                - generic [ref=e263]: Integracja z bramką płatności
+              - listitem [ref=e264]:
+                - generic [ref=e267]: Responsywny design na każde urządzenie
+            - link "Umów bezpłatną konsultację →" [ref=e268] [cursor=pointer]:
+              - /url: "#contact"
+          - generic [ref=e270]:
+            - generic [ref=e271]: "02"
+            - heading "Social media" [level=3] [ref=e278]
+            - paragraph [ref=e279]: Przejmujemy pełne zarządzanie Twoimi profilami — od tworzenia treści po płatne kampanie. Budujesz rozpoznawalność marki, a Ty skupiasz się na prowadzeniu biznesu.
+            - list [ref=e280]:
+              - listitem [ref=e281]:
+                - generic [ref=e284]: Miesięczny kalendarz treści dopasowany do sezonu
+              - listitem [ref=e285]:
+                - generic [ref=e288]: Copywriting + projekt graficzny każdego posta
+              - listitem [ref=e289]:
+                - generic [ref=e292]: Prowadzenie i optymalizacja kampanii Meta Ads
+              - listitem [ref=e293]:
+                - generic [ref=e296]: Bieżące odpowiedzi na komentarze i wiadomości
+              - listitem [ref=e297]:
+                - generic [ref=e300]: Miesięczny raport zasięgów i wyników
+            - link "Umów bezpłatną konsultację →" [ref=e301] [cursor=pointer]:
+              - /url: "#contact"
+          - generic [ref=e303]:
+            - generic [ref=e304]: "03"
+            - heading "Automatyzacje" [level=3] [ref=e309]
+            - paragraph [ref=e310]: Wdrażamy automatyzacje, które eliminują ręczną pracę przy rutynowych zadaniach. Potwierdzenia rezerwacji, follow-upy, powiadomienia — wszystko dzieje się samo.
+            - list [ref=e311]:
+              - listitem [ref=e312]:
+                - generic [ref=e315]: Automatyczne potwierdzenia rezerwacji i płatności
+              - listitem [ref=e316]:
+                - generic [ref=e319]: Sekwencje emailowe po złożeniu zapytania
+              - listitem [ref=e320]:
+                - generic [ref=e323]: Przypomnienia dla gości przed przyjazdem
+              - listitem [ref=e324]:
+                - generic [ref=e327]: Powiadomienia wewnętrzne dla właściciela
+              - listitem [ref=e328]:
+                - generic [ref=e331]: Integracja z istniejącymi narzędziami (kalendarz, e-mail)
+            - link "Umów bezpłatną konsultację →" [ref=e332] [cursor=pointer]:
+              - /url: "#contact"
+    - region "Referencja" [ref=e333]:
+      - generic [ref=e335]:
+        - generic [ref=e336]:
+          - generic [ref=e337]: “
+          - blockquote [ref=e338]: WeUnite to rzadki przykład agencji, której naprawdę zależy na efekcie. Szybko łapią, co jest potrzebne — i po prostu to robią. Bez zbędnych spotkań, bez chaosu, z jakością, która mówi sama za siebie.
+          - generic [ref=e339]:
+            - paragraph [ref=e340]: Bartłomiej Glinka
+            - paragraph [ref=e341]:
+              - text: Współzałożyciel ·
+              - link "Omida Group" [ref=e342] [cursor=pointer]:
+                - /url: https://omida-group.com/
+        - img "Bartłomiej Glinka, Współzałożyciel Omida Group" [ref=e345]
+    - region "Formularz kontaktowy" [ref=e346]:
+      - generic [ref=e348]:
+        - generic [ref=e349]:
+          - paragraph [ref=e350]: BEZPŁATNA WIZUALIZACJA
+          - heading "Zacznijmy razem." [level=2] [ref=e351]: Zacznijmyrazem.
+          - paragraph [ref=e352]: Powiedz nam, co robisz i co Cię interesuje. Wrócimy do Ciebie w ciągu 24 godzin z planem działania i bezpłatną wizualizacją Twojej strony.
+          - generic [ref=e353]:
+            - generic [ref=e354]: Odpowiadamy w ciągu 24h
+            - generic [ref=e359]: Bezpłatna wizualizacja strony
+            - generic [ref=e364]: Zero zobowiązań
+        - form "Formularz zgłoszeniowy" [ref=e370]:
+          - generic [ref=e371]:
+            - generic [ref=e372]: Imię i nazwisko
+            - textbox "Jan Kowalski" [ref=e374]
+          - generic [ref=e375]:
+            - generic [ref=e376]: Nazwa projektu / firmy
+            - textbox "np. Domki nad Jeziorem" [ref=e378]
+          - generic [ref=e379]:
+            - generic [ref=e380]: Rodzaj działalności
+            - generic [ref=e381]:
+              - combobox [ref=e382]:
+                - generic [ref=e383]: Wybierz...
+                - img: ▼
+              - textbox [ref=e384]
+          - generic [ref=e385]:
+            - generic [ref=e386]: Opis projektu
+            - textbox "Krótko opisz swój projekt lub czego potrzebujesz..." [ref=e388]
+          - generic [ref=e389]:
+            - generic [ref=e390]:
+              - text: Kolorystyka
+              - generic [ref=e391]: (opcjonalnie)
+            - textbox "np. ciepłe, ziemiste odcienie" [ref=e393]
+          - generic [ref=e394]:
+            - generic [ref=e395]:
+              - text: Dołącz pliki
+              - generic [ref=e396]: (opcjonalnie)
+            - button "Dołącz pliki (opcjonalnie) Wybierz pliki lub przeciągnij tutaj" [ref=e397]
+            - generic [ref=e398] [cursor=pointer]: Wybierz pliki lub przeciągnij tutaj
+          - generic [ref=e401]:
+            - generic [ref=e402]: Adres email
+            - textbox "jan@domkiletniskowe.pl" [ref=e404]
+          - button "Wyślij →" [ref=e405]
+  - contentinfo [ref=e406]:
+    - generic: WeUnite
+    - generic [ref=e407]:
+      - generic [ref=e408]:
+        - link "WeUnite" [ref=e409] [cursor=pointer]:
+          - /url: /
+        - list [ref=e410]:
+          - listitem [ref=e411]:
+            - link "O nas" [ref=e412] [cursor=pointer]:
+              - /url: "#o-nas"
+          - listitem [ref=e414]:
+            - link "Co robimy" [ref=e415] [cursor=pointer]:
+              - /url: "#co-robimy"
+          - listitem [ref=e417]:
+            - link "Dla kogo" [ref=e418] [cursor=pointer]:
+              - /url: "#dla-kogo"
+          - listitem [ref=e420]:
+            - link "Jak działamy" [ref=e421] [cursor=pointer]:
+              - /url: "#jak-dzialamy"
+          - listitem [ref=e423]:
+            - link "Polecają" [ref=e424] [cursor=pointer]:
+              - /url: "#polecaja"
+          - listitem [ref=e426]:
+            - link "Kontakt" [ref=e427] [cursor=pointer]:
+              - /url: "#kontakt"
+        - list [ref=e429]:
+          - listitem [ref=e430]:
+            - link "Polityka prywatności" [ref=e431] [cursor=pointer]:
+              - /url: /polityka-prywatnosci
+          - listitem [ref=e433]:
+            - link "Polityka cookies" [ref=e434] [cursor=pointer]:
+              - /url: /polityka-cookies
+          - listitem [ref=e436]:
+            - link "Regulamin" [ref=e437] [cursor=pointer]:
+              - /url: /regulamin
+        - generic [ref=e439]:
+          - paragraph [ref=e440]: "Adres: ul. Gdyńska G/9,80-340 Gdańsk"
+          - paragraph [ref=e441]:
+            - text: "Email:"
+            - link "info@weunite.pl" [ref=e442] [cursor=pointer]:
+              - /url: mailto:info@weunite.pl
+          - paragraph [ref=e444]:
+            - text: "Telefon:"
+            - link "+48 537 732 320" [ref=e445] [cursor=pointer]:
+              - /url: tel:+48537732320
+        - generic [ref=e447]:
+          - link "LinkedIn" [ref=e448] [cursor=pointer]:
+            - /url: https://linkedin.com/company/weunite
+          - link "Facebook" [ref=e454] [cursor=pointer]:
+            - /url: https://facebook.com/weunite
+          - link "Instagram" [ref=e458] [cursor=pointer]:
+            - /url: https://instagram.com/weunite
+      - paragraph [ref=e464]: Copyright © 2026 WeUnite. All rights reserved.
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e470] [cursor=pointer]

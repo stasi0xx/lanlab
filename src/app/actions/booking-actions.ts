@@ -23,6 +23,12 @@ const BookingSchema = z.object({
     phone: z.string().min(9, "Numer telefonu jest za krótki"),
 });
 
+// Schemat dla weryfikacji danych klienta (krok przed kalendarzem)
+const CustomerCheckSchema = z.object({
+    email: z.string().email("Niepoprawny email"),
+    phone: z.string().min(9, "Numer telefonu jest za krótki"),
+});
+
 // --- AKCJA 1: WERYFIKACJA KODU ---
 
 export async function verifyPromoCode(formData: FormData) {
@@ -77,7 +83,36 @@ export async function verifyPromoCode(formData: FormData) {
     }
 }
 
-// --- AKCJA 2: REZERWACJA TERMINU ---
+// --- AKCJA 2: WERYFIKACJA ISTNIEJĄCEGO KLIENTA ---
+// Sprawdza, czy podany e-mail lub telefon widnieje już w bookings (blokada nadużyć bezpłatnej lekcji próbnej)
+
+export async function checkExistingCustomer(formData: FormData) {
+    const raw = {
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+    };
+
+    const parsed = CustomerCheckSchema.safeParse(raw);
+    if (!parsed.success) {
+        return { success: false, message: parsed.error.issues[0]?.message || "Sprawdź wpisane dane." };
+    }
+
+    try {
+        const existing = await db.query.bookings.findFirst({
+            where: or(
+                eq(bookings.userEmail, parsed.data.email),
+                eq(bookings.userPhone, parsed.data.phone)
+            ),
+        });
+
+        return { success: true, exists: !!existing };
+    } catch (error) {
+        console.error("Customer check error:", error);
+        return { success: false, message: "Błąd weryfikacji danych. Spróbuj ponownie." };
+    }
+}
+
+// --- AKCJA 3: REZERWACJA TERMINU ---
 
 export async function createBooking(prevState: any, formData: FormData) {
     // Parsujemy dane z formularza
@@ -87,6 +122,7 @@ export async function createBooking(prevState: any, formData: FormData) {
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
+        lessonLocation: formData.get("lessonLocation"),
     };
 
     // 1. Walidacja danych
@@ -126,6 +162,7 @@ export async function createBooking(prevState: any, formData: FormData) {
                 userEmail: rawData.email as string,
                 userPhone: rawData.phone as string,
                 promoCodeId: rawData.promoCodeId ? (rawData.promoCodeId as string) : null,
+                lessonLocation: rawData.lessonLocation === "stationary" ? "stationary" : "online",
                 status: "confirmed", // Na razie od razu potwierdzone (MVP)
             });
 
